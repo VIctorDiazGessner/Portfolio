@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Victor Diaz Gessner,
+  name: "Victor Diaz Gessner",
   title: "Mechanical Engineer",
   description: "Victor Diaz Gessner's portfolio",
   accentColor: "#1d4ed8",
@@ -17,34 +17,34 @@ export const siteConfig = {
       name: "Flow Rate Algorithm",
       description:
         "Cut prototyping costs by 75% by self-teaching Python to solve a fluid mechanics challenge that stumped 12 physical iterations - developing an algorithm that calculates perfect flow distribution across manifold outlets using Reynolds numbers, pressure drop analysis, and discharge coefficients. Instead of continuing expensive trial-and-error machining, I built a computational tool that accounts for real-world variables like material roughness and pressure losses, achieving the precise flow uniformity that manual design couldn't match. This reusable algorithm now permanently accelerates our manifold design process, demonstrating how combining mechanical engineering principles with programming creates breakthrough solutions.",
-        link: "https://sites.google.com/view/flow-rate-algorithm/home",
-      skills: ["Python", "Preditive Modeling", "DFM" "Test & Validation" "Cost Engineering", "Prototyping", "3D CAD" ],
+         link: "https://sites.google.com/view/flow-rate-algorithm/home",
+      skills: ["Python", "Predictive Modeling", "DFM", "Test & Validation", "Cost Engineering", "Prototyping", "3D CAD" ],
     },
     {
       name: "Renter Friendly Desk",
       description:
        "Designed and prototyped a mechanically-operated transforming desk that solves the urban space crisis reducing footprint by 70% when stored while providing full workspace functionality through an elegant hand-crank system. Led a six-person team while self-teaching FEA to validate the rack-and-pinion mechanism, performing advanced structural calculations to ensure the freestanding design could support real-world loads without wall mounting. Delivered a fully functional 3D prototype and comprehensive engineering analysis proving this renter-friendly solution could revolutionize small-space living for the 75% of Americans in apartments.",
        link: "https://sites.google.com/view/renter-friendly-desk/home",
-      skills: ["FEA", "Project Managment", "CAD", "Saftey Factor Design"],
+      skills: ["FEA", "Project Management", "CAD", "Safety Factor Design"],
     },
     {
       name: "Spondooli, LLC (Startup | CO-founder)",
       description:
         "Co-founded a financial literacy application featuring real-time stock data designed to educate users on financial management principles. Managed company finances, led crowdfunding initiatives, and spearheaded marketing efforts targeting educational organizations. The venture's impact was validated by winning 1st place in the New York regionals at the 2020 Diamond Challenge hosted by the University of Delaware.",
       link: "www.spondooliofficial.com",
-      skills: ["Crowd-funding", "Entrepreneurship", "B2B Marketing", "Stakeholder Comunication", "Financial Managment"],
+      skills: ["Crowd-funding", "Entrepreneurship", "B2B Marketing", "Stakeholder Communication", "Financial Management"],
     },
   ],
   experience: [
     {
       company: "SharkNinja",
-      title: "New Porduct Development Co-op",
+      title: "New Product Development Co-op",
       dateRange: "Jan-Jun 2025",
       bullets: [
-        "Architected intuitive user experiences and performance improvements for consumer floorcare products via 3D CAD innovations with predictive algorithms while orchestrating cross-functional collaboration."
+        "Architected intuitive user experiences and performance improvements for consumer floorcare products via 3D CAD innovations with predictive algorithms while orchestrating cross-functional collaboration.",
         "Rapidly prototyped designs using both hand tool with Creo software enabling engineering proof of concepts, technical presentations to international teams and C-suite executives",
         "Developed innovative Python algorithm integrating fluid dynamics, predictive modeling to optimize design performance, improving prototyping efficiency by 25%",
-        "Engineered, developed and tested novel designs achieving industry KPI beating products and setting new benchmarks"
+        "Engineered, developed and tested novel designs achieving industry KPI beating products and setting new benchmarks",
         "Aligned mechanical, industrial and manufacturing requirements for prototypes iterations, Design for Manufacturing (DFM) planning and accelerating process validation",
       ],
     },
@@ -55,7 +55,7 @@ export const siteConfig = {
       bullets: [
         "Pioneered advanced material characterization for nuclear, aerospace systems by investigating quantum scale interactions in UV-curable ceramics, testing variations and analyzing nuclear reactor data.",
         "Engineered optimized material compositions through statistical analysis of neutron shielding flux data from reactor experiments, achieving 43% improvement in shielding performance",
-        "Built iterative ceramic prototypes using additive manufacturing while modeling mechanical properties thought Jacob equations analysis and SEM imaging Validation",
+        "Built iterative ceramic prototypes using additive manufacturing while modeling mechanical properties through Jacob equations analysis and SEM imaging Validation",
       ],
     },
     {
@@ -71,11 +71,11 @@ export const siteConfig = {
   ],
   education: [
     {
-      school: "Northeaster University",
+      school: "Northeastern University",
       degree: "Bachelor of Science in Mechanical Engineering ",
       dateRange: "2022 - 2026",
       achievements: [
-        "Gaduated with a 3.7 GPA",
+        "Graduated with a 3.7 GPA",
         "Dean's List all semesters",
         "Treasurer of the American Society of Mechancial Engineers",
       ],
