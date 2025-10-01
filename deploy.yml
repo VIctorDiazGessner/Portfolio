@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Astro site to GitHub Pages
 
 on:
   push:
@@ -11,19 +11,21 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
-        uses: actions/checkout@v4
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
+      - uses: actions/checkout@v4
+      - uses: withastro/action@v4
+        with:
+          # Optional: specify your build directory (default is 'dist')
+          # site: './dist'
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+      - uses: actions/deploy-pages@v4
+        id: deployment
+        with:
+          artifact_name: github-pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
