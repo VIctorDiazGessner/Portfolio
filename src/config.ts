@@ -31,7 +31,7 @@ export const siteConfig = {
       name: "Spondooli, LLC (Startup | CO-founder)",
       description:
         "Co-founded a financial literacy application featuring real-time stock data designed to educate users on financial management principles. Managed company finances, led crowdfunding initiatives, and spearheaded marketing efforts targeting educational organizations. The venture's impact was validated by winning 1st place in the New York regionals at the 2020 Diamond Challenge hosted by the University of Delaware.",
-      link: "www.spondooliofficial.com",
+      link: "https://violet-squid-r67e.squarespace.com/",
       skills: ["Crowd-funding", "Entrepreneurship", "B2B Marketing", "Stakeholder Communication", "Financial Management"],
     },
   ],
