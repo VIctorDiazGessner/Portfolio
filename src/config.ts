@@ -9,7 +9,7 @@ export const siteConfig = {
     github: "https://github.com/VIctorDiazGessner/",
   },
   aboutMe:
-    "I am a mechanical engineer with a B.S., from Northeastern University. I thrive on solving complex design challenges and bringing products from concepts to market. My passion for understanding how things work has let me into mechanical design. I have worked on optimizing fluid systems, prototyping, testing and making designs manufacturable. I have always challenged myself with the most technically demanding projects, whether it is for aerospace systems or emerging technology design. The projects below demonstrate how I approach complex mechanical problems by aligning the right people and delivering solutions that work in the real world. ",
+    "I am a mechanical engineer with a B.S., from Northeastern University. I thrive on solving complex design challenges and bringing products from concepts to market. My passion for understanding how things work has led me into mechanical design. I have worked on prototyping, testing, making designs manufacturable, optimizing systems, and large scale data analysis. I have always challenged myself with the most technically demanding projects, whether it is for aerospace systems or emerging technology design. The projects below demonstrate how I approach complex mechanical problems by aligning the right people and delivering solutions that work in the real world. ",
   skills: ["Languages: English, French, Spanish", "3D CAD: SolidWorks, PTC-Creo, AutoCAD, Onshape", "Prototyping: FDM, SLA, Laser Cutter, Power and Hand Tools", "Programming: Python, C++, JavaScript, MATLAB, Minitab"],
   
   projects: [
