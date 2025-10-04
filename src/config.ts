@@ -16,14 +16,14 @@ export const siteConfig = {
     {
       name: "Flow Rate Algorithm",
       description:
-        "Cut prototyping costs by 75% by self-teaching Python to solve a fluid mechanics challenge that stumped 12 physical iterations - developing an algorithm that calculates perfect flow distribution across manifold outlets using Reynolds numbers, pressure drop analysis, and discharge coefficients. Instead of continuing expensive trial-and-error machining, I built a computational tool that accounts for real-world variables like material roughness and pressure losses, achieving the precise flow uniformity that manual design couldn't match. This reusable algorithm now permanently accelerates our manifold design process, demonstrating how combining mechanical engineering principles with programming creates breakthrough solutions.",
+        "Cut prototyping costs by 75% by self-teaching Python to solve a fluid mechanics challenges by developing an algorithm that calculates perfect flow distribution across manifold outlets using Reynolds numbers, pressure drop analysis, and discharge coefficients. Instead of continuing expensive trial-and-error prototyping and printing, I built a computational tool that accounts for real-world variables like material roughness and pressure losses, achieving the precise flow uniformity that manual design couldn't match. This reusable algorithm now permanently accelerates our manifold design process, demonstrating how combining mechanical engineering principles with programming creates breakthrough solutions.",
          link: "https://sites.google.com/view/flow-rate-algorithm/home",
       skills: ["Python", "Predictive Modeling", "DFM", "Test & Validation", "Cost Engineering", "Prototyping", "3D CAD" ],
     },
     {
       name: "Renter Friendly Desk",
       description:
-       "Designed and prototyped a mechanically-operated transforming desk that solves the urban space crisis reducing footprint by 70% when stored while providing full workspace functionality through an elegant hand-crank system. Led a six-person team while self-teaching FEA to validate the rack-and-pinion mechanism, performing advanced structural calculations to ensure the freestanding design could support real-world loads without wall mounting. Delivered a fully functional 3D prototype and comprehensive engineering analysis proving this renter-friendly solution could revolutionize small-space living for the 75% of Americans in apartments.",
+       "Designed a mechanically-operated transforming desk that solves the urban space crisis reducing footprint by 70% when stored while providing full workspace functionality through an elegant hand-crank system. Led a six-person team while self-teaching FEA to validate the rack-and-pinion mechanism, performing advanced structural calculations to ensure the freestanding design could support real-world loads without wall mounting. Delivered a fully functional 3D prototype and comprehensive engineering analysis proving this renter-friendly solution could revolutionize small-space living for the 75% of Americans in apartments.",
        link: "https://sites.google.com/view/renter-friendly-desk/home",
       skills: ["FEA", "Project Management", "CAD", "Safety Factor Design"],
     },
