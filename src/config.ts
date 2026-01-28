@@ -44,37 +44,37 @@ export const siteConfig = {
   ],
   experience: [
     {
-      company: "SharkNinja",
-      title: "New Product Development Co-op",
-      dateRange: "Jan-Jun 2025",
-      bullets: [
-        "Architected intuitive user experiences and performance improvements for consumer floorcare products via 3D CAD innovations with predictive algorithms while orchestrating cross-functional collaboration.",
-        "Rapidly prototyped designs using both hand tool with Creo software enabling engineering proof of concepts, technical presentations to international teams and C-suite executives",
-        "Developed innovative Python algorithm integrating fluid dynamics, predictive modeling to optimize design performance, improving prototyping efficiency by 25%",
-        "Engineered, developed and tested novel designs achieving industry KPI beating products and setting new benchmarks",
-        "Aligned mechanical, industrial and manufacturing requirements for prototypes iterations, Design for Manufacturing (DFM) planning and accelerating process validation",
-      ],
-    },
-    {
-      company: "Directed Assembly of Particles & Suspension Research Laboratory",
-      title: "Undergraduate Researcher",
-      dateRange: "Aug - Dec 2025",
-      bullets: [
-        "Pioneered advanced material characterization for nuclear, aerospace systems by investigating quantum scale interactions in UV-curable ceramics, testing variations and analyzing nuclear reactor data.",
-        "Engineered optimized material compositions through statistical analysis of neutron shielding flux data from reactor experiments, achieving 43% improvement in shielding performance",
-        "Built iterative ceramic prototypes using additive manufacturing while modeling mechanical properties through Jacob equations analysis and SEM imaging Validation",
-      ],
-    },
-    {
-      company: "Johnson & Johnson MedTech | Heart Recovery",
-      title: "Production Engineering Co-op",
-      dateRange: "Jan - Jun 2024",
-      bullets: [
-        "Optimized medical device manufacturing using data-driven lean implementations, leveraging production analytics to eliminate inefficiencies and enhance performance across production multiple lines.",
-        "Utilized Instron testing equipment, to determine critical stress points and played a pivotal role in rectifying issues before they led to business risks saving $1.3M+",
-        "Created and implemented 156 production fixtures and lean improvements that achieved 23% yield gains via supplier collaboration and process optimization",
-      ],
-    },
+    company: "SharkNinja",
+title: "New Product Development Co-op",
+dateRange: "Jan - Jun 2025",
+bullets: [
+  "Engineered novel wet floorcare systems through CAD-driven design, fluid dynamics calculations and validation testing, coordinating across mechanical, manufacturing and electrical engineering teams",
+  "Designed and validated mechanical systems using Creo and rapid prototyping techniques, conducting engineering proof-of-concept tests and delivering technical presentations to C-suite and international teams",
+  "Developed Python-based fluid dynamics model integrating first principles and empirical data, achieving 25% reduction in prototype iteration cycles through data-driven analysis",
+  "Executed design validation testing against performance specifications, iterating designs through test-analyze-fix cycles to exceed industry performance benchmarks",
+  "Coordinated Design for Manufacturing (DFM) across mechanical, industrial design and manufacturing teams, defining validation protocols and accelerating qualification processes",
+],
+},
+{
+company: "Directed Assembly of Particles & Suspension Research Laboratory",
+title: "Undergraduate Researcher",
+dateRange: "Aug - Dec 2024",
+bullets: [
+  "Studied material characterization for aerospace and nuclear shielding applications, investigating quantum-scale interactions in UV-curable ceramics through nuclear reactor experiments for RTX Raytheon",
+  "Engineered optimized material compositions through statistical analysis of neutron shielding flux data from reactor experiments, achieving 43% improvement in shielding performance",
+  "Designed iterative ceramic prototypes using additive manufacturing while modeling mechanical properties through Jacobian equations analysis and Scanning Electron Microscopy imaging",
+],
+},
+{
+company: "Johnson & Johnson MedTech | Heart Recovery",
+title: "Production Engineering Co-op",
+dateRange: "Jan - Jun 2024",
+bullets: [
+  "Optimized high-precision medical device manufacturing through data-driven process improvements, statistical analysis, and Lean Six Sigma methodologies across multiple production lines",
+  "Conducted failure mode analysis using Instron tensile testing and root cause investigation, leading cross-functional engineering teams to implement corrective actions that prevented product failures and avoided $1.3M+ in potential losses",
+  "Designed and implemented 156 production fixtures using lean principles, achieving 23% yield improvement through data-driven optimization, statistical process control and supplier collaboration",
+],
+},
   ],
   education: [
     {
