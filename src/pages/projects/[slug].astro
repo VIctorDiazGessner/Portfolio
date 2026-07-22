@@ -9,8 +9,10 @@ import { siteConfig } from "../../config";
 import { withBase } from "../../lib/base";
 
 export function getStaticPaths() {
-  return siteConfig.projects.map((project, index) => {
-    const next = siteConfig.projects[(index + 1) % siteConfig.projects.length];
+  // Main engineering projects + ANSYS coursework projects both get pages.
+  const all = [...siteConfig.projects, ...siteConfig.ansysProjects];
+  return all.map((project, index) => {
+    const next = all[(index + 1) % all.length];
     return {
       params: { slug: project.slug },
       props: { project, next },

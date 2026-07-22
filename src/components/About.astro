@@ -2,7 +2,6 @@
 import { siteConfig } from "../config";
 
 const edu = siteConfig.education ?? [];
-const lead = siteConfig.leadership;
 ---
 
 <section id="about" class="scroll-mt-20 px-5 sm:px-8 py-20 sm:py-28">
@@ -54,47 +53,5 @@ const lead = siteConfig.leadership;
         )
       }
     </div>
-
-    <!-- Leadership: Engineer Forward (intentionally compact) -->
-    {
-      lead && (
-        <div class="reveal mt-6 rounded-xl border border-[var(--border)] bg-[var(--bg-panel)] p-6 sm:p-8 relative overflow-hidden">
-          <div
-            class="absolute left-0 top-0 bottom-0 w-1"
-            style={`background-color: ${siteConfig.accentColor}`}
-            aria-hidden="true"
-          />
-          <div class="grid sm:grid-cols-12 gap-6 items-start">
-            <div class="sm:col-span-8">
-              <p class="eyebrow">Leadership</p>
-              <h3 class="mt-3 text-xl font-semibold text-[var(--text)]">
-                {lead.org}
-                <span class="text-[var(--text-muted)] font-normal text-base">
-                  {" "}· {lead.role}
-                </span>
-              </h3>
-              <p class="mt-3 text-[15px] leading-relaxed text-[var(--text-muted)]">
-                {lead.summary}
-              </p>
-            </div>
-            <div class="sm:col-span-4 flex sm:justify-end gap-8">
-              {lead.stats.map((s) => (
-                <div>
-                  <div
-                    class="font-mono text-3xl font-bold"
-                    style={`color: ${siteConfig.accentColor}`}
-                  >
-                    {s.value}
-                  </div>
-                  <div class="font-mono text-[11px] uppercase tracking-wider text-[var(--text-faint)]">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )
-    }
   </div>
 </section>

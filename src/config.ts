@@ -292,11 +292,12 @@ export const siteConfig = {
         "Build a free-standing, nesting desk that collapses into a compact cabinet footprint and cranks out into a full desk on demand, with no wall mounting, and prove it structurally sound under a worst-case center load.",
       approach: [
         "Designed a nesting shelf and desk driven by a hand-crank rack-and-pinion mechanism that extends a full desk out of a compact cabinet, with no wall mounting required.",
-        "Iterated from an original sketch to a first physical mockup for concept testing, then to a final 3D-printed working prototype shown to the class.",
+        "Took the design from an original sketch to a small physical concept mockup, then a 3D-printed demonstration model shown to the class. The full-scale desk was designed to be built, not actually manufactured; only the small demonstration mockups were made.",
         "Ran the full analysis in SolidWorks Simulation (a lighter-weight FEA tool suited to a class component-design project, not a full ANSYS-level simulation): static failure and FEA, buckling and FEA, fatigue (Goodman criterion), connection analysis for screws and hinges, and gear analysis for the rack-and-pinion drive.",
         "Benchmarked cost against the closest competitor (the Orvil desk, $122) and built a full manufacturing and cost breakdown.",
       ],
       myContributions: [
+        "Led the team overall: divided the analysis work across the six members and kept deliverables on deadline throughout the project.",
         "Co-wrote the project summary, together with Erika Kraft and Amanda Curran.",
         "Performed the static failure analysis and its correlated FEA, together with Amanda Curran.",
         "Performed the gear system analysis (bending stress, wear stress, torque and force, and extension speed), together with Amanda Curran.",
@@ -310,7 +311,7 @@ export const siteConfig = {
         "Gears were the tightest constraint in the whole design: the lowest safety factor found anywhere was about 1.18, for wear on one of the drive gears.",
         "Cost: an estimated unit price of $35.47 (plus about $2.00 packaging), against roughly $35,000 annual overhead and variable freight/marketing of about $23.90 to $31.00 per unit, assuming rural-China production with flat-pack shipping.",
       ],
-      note: "Team project for a mechanical component design class, not a capstone or commercial product.",
+      note: "Team project for a mechanical component design class, not a capstone or commercial product. It was a design project: the full desk was designed to be built, not actually built. Only small demonstration mockups (a concept mockup and a 3D-printed model) were made.",
       images: [
         { caption: "Static failure FEA (SolidWorks Simulation)" },
         { caption: "Buckling FEA" },
@@ -321,39 +322,101 @@ export const siteConfig = {
   ] as Project[],
 
   // ==========================================================================
-  // COURSEWORK: compact supporting section (not full case studies).
+  // ANSYS ENGINEERING PROJECTS: CFD coursework (Prof. Abedi's course), each
+  // its own openable page under the Engineering Projects section. Same Project
+  // shape as the main projects, with image/document placeholders for the ANSYS
+  // output (pressure contours, velocity fields, mesh images, graphs).
   // ==========================================================================
-  courseworkNote: "ANSYS Fluent, Prof. Abedi's course",
-  coursework: [
+  ansysNote: "ANSYS Fluent, Prof. Abedi's course",
+  ansysProjects: [
     {
-      title: "Turbulent Pipe Flow Validation",
-      tool: "ANSYS Fluent",
-      blurb:
-        "Built a 1:100 scale pipe model in ANSYS to reproduce and validate the centerline velocity overshoot and wall shear stress undershoot in the entrance region of turbulent pipe flow, benchmarked directly against Bopp and Weiss (2022, International Journal of Thermal Sciences). Ran a mesh independence study across three mesh densities, then compared laminar, k-epsilon, k-omega, and Spalart-Allmaras turbulence models at Reynolds numbers of 19,000 and 105,000 (plus Re 40, 60, 80, and 150 for further validation). The k-omega model was most consistent and matched the paper's overshoot behavior closely.",
-      tags: ["ANSYS Fluent", "Turbulence models", "Mesh independence", "Validation"],
+      slug: "cfd-turbulent-pipe-flow",
+      name: "Turbulent Pipe Flow Validation",
+      org: "ANSYS Fluent, CFD Homework 3",
+      role: "CFD Analysis",
+      dateRange: "Coursework",
+      summary:
+        "Built a 1:100 scale pipe model in ANSYS to reproduce and validate the centerline velocity overshoot and wall shear stress undershoot in the entrance region of turbulent pipe flow, benchmarked against a published 2022 paper.",
+      skills: ["ANSYS Fluent", "Turbulence Modeling", "Mesh Independence", "Validation"],
+      metrics: [],
+      problem:
+        "Reproduce and validate the centerline velocity overshoot and wall shear stress undershoot in turbulent pipe flow, a real effect where centerline velocity in a pipe's entrance region rises above its fully developed value before settling back down.",
+      approach: [
+        "Built a 1:100 scale pipe model in ANSYS and benchmarked results directly against Bopp and Weiss (2022, International Journal of Thermal Sciences), 'On the origin of the centreline velocity overshoot in the entrance region of a turbulent pipe flow'.",
+        "Ran a mesh independence study across three mesh densities to confirm the results were mesh-independent.",
+        "Compared laminar, k-epsilon, k-omega, and Spalart-Allmaras turbulence models at Reynolds numbers of 19,000 and 105,000, plus Reynolds numbers of 40, 60, 80, and 150 for further validation against the paper's data.",
+      ],
+      result: [
+        "The k-omega model was the most consistent and was used for the primary comparison.",
+        "Results matched the published paper's overshoot behavior and trends closely across all tested Reynolds numbers.",
+      ],
+      note: "Full write-up with ANSYS screenshots (contours, profiles, graphs) available on request.",
+      images: [
+        { caption: "Centerline velocity profile vs. published data" },
+        { caption: "Wall shear stress distribution" },
+        { caption: "Mesh independence study" },
+        { caption: "Turbulence model comparison" },
+      ],
     },
     {
-      title: "Cessna 172 Airfoil Analysis",
-      tool: "ANSYS Fluent",
-      blurb:
-        "Modeled the Cessna 172 main wing (NACA 2412) and stabilizer (NACA 0012) airfoils in ANSYS Fluent at 63 m/s, analyzing pressure distribution, velocity flow fields, and lift and drag coefficients across angles of attack from -2 to 4 degrees, capturing the expected trend where more negative angles increase downforce and cross-sectional drag.",
-      tags: ["ANSYS Fluent", "Airfoil aerodynamics", "Lift & drag"],
+      slug: "cfd-cessna-172-airfoil",
+      name: "Cessna 172 Airfoil Analysis",
+      org: "ANSYS Fluent, CFD Homework 4",
+      role: "CFD Analysis",
+      dateRange: "Coursework",
+      summary:
+        "Modeled the Cessna 172 main wing (NACA 2412) and stabilizer (NACA 0012) airfoils in ANSYS Fluent at 63 m/s, analyzing pressure distribution, velocity fields, and lift and drag coefficients across a range of angles of attack.",
+      skills: ["ANSYS Fluent", "Airfoil Aerodynamics", "Lift & Drag", "Pressure Fields"],
+      metrics: [],
+      problem:
+        "Characterize the aerodynamics of the Cessna 172's main wing (NACA 2412) and stabilizer (NACA 0012) airfoils at a representative flight speed.",
+      approach: [
+        "Modeled both airfoils in ANSYS Fluent at 63 m/s, analyzing pressure distribution around each airfoil and the surrounding velocity flow fields.",
+        "Computed lift and drag coefficients across angles of attack from -2 to 4 degrees to see how each responded.",
+      ],
+      result: [
+        "Captured the expected relationship where more negative angles of attack increase downforce and cross-sectional drag.",
+      ],
+      note: "Full write-up with ANSYS screenshots (pressure contours, velocity fields) available on request.",
+      images: [
+        { caption: "Pressure contours, NACA 2412" },
+        { caption: "Velocity field around the airfoil" },
+        { caption: "Lift and drag vs. angle of attack" },
+        { caption: "Mesh around the airfoil" },
+      ],
     },
-  ],
+  ] as Project[],
 
   // ==========================================================================
-  // VENTURES: optional, smaller (business / entrepreneurship, not engineering).
+  // STANDOUT ROLES: founder / leadership roles, featured near the TOP of the
+  // page (most people have not founded and run either of these).
   // ==========================================================================
-  ventures: [
+  standoutRoles: [
     {
-      name: "Spondooli, LLC",
+      org: "Engineer Forward, Inc.",
+      role: "Co-Founder & President",
+      dateRange: "Nonprofit",
+      summary:
+        "Co-founded a peer-mentorship nonprofit connecting engineering students with recent graduates who have navigated the same academic and professional challenges. Incorporated as a Massachusetts nonprofit corporation (Articles of Organization filed), with bylaws drafted and a board of directors formed, currently pursuing 501(c)(3) status.",
+      stats: [
+        { value: "58", label: "Mentees" },
+        { value: "10", label: "Mentors" },
+      ],
+      tags: ["Nonprofit", "Mentorship", "Mentors from RTX, J&J, SharkNinja"],
+    },
+    {
+      org: "Spondooli, LLC",
       role: "Co-Founder & CFO",
       dateRange: "Sep 2019 - Aug 2021",
-      blurb:
-        "In a business class, the team identified that roughly 50% of the US population is financially illiterate, and built a fun, interactive tool to teach financial literacy from a young age, targeting students from middle school through university. We sold the product to a handful of schools and grew a meaningful base of active users beyond them.",
+      summary:
+        "Co-founded a real, Delaware-incorporated company (not a school project) that built a fun, interactive tool to teach financial literacy from a young age, for students from middle school through university. The idea originated in a business class after finding that roughly 50% of the US population is financially illiterate, but the company was designed, built, and incorporated entirely outside of school. We sold the product to a handful of schools and grew a meaningful base of active users beyond them.",
       contribution:
-        "My role: business plan, financials, fundraising, and closing the deals with schools directly.",
-      tags: ["Entrepreneurship", "Finance", "Fundraising", "B2B Sales"],
+        "My role: business plan, financials, and fundraising, plus working the school deals directly.",
+      stats: [
+        { value: "DE", label: "Incorporated" },
+        { value: "Revenue", label: "Sold to schools" },
+      ],
+      tags: ["Incorporated company", "Financial literacy", "Fundraising", "B2B Sales"],
     },
   ],
 
@@ -399,20 +462,6 @@ export const siteConfig = {
       ],
     },
   ],
-
-  // ==========================================================================
-  // LEADERSHIP: intentionally compact; a strong signal, not the headline.
-  // ==========================================================================
-  leadership: {
-    org: "Engineer Forward, Inc.",
-    role: "Co-Founder & President",
-    summary:
-      "Co-founded a peer-mentorship nonprofit connecting engineering students with recent graduates who have navigated the same academic and professional challenges. Scaled to 58 mentees and 10 mentors from companies including RTX, J&J, and SharkNinja. Incorporated as a Massachusetts nonprofit corporation (Articles of Organization filed), with bylaws drafted and a board of directors formed, currently pursuing 501(c)(3) status.",
-    stats: [
-      { value: "58", label: "Mentees" },
-      { value: "10", label: "Mentors" },
-    ],
-  },
 
   education: [
     {

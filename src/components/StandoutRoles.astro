@@ -1,0 +1,92 @@
+---
+import { siteConfig } from "../config";
+
+const roles = siteConfig.standoutRoles ?? [];
+const accent = siteConfig.accentColor;
+---
+
+{
+  roles.length > 0 && (
+    <section id="roles" class="scroll-mt-20 px-5 sm:px-8 py-20 sm:py-28">
+      <div class="max-w-6xl mx-auto">
+        <div class="reveal mb-10 sm:mb-14">
+          <p class="eyebrow">Founder &amp; Leadership</p>
+          <h2 class="mt-3 text-3xl sm:text-5xl font-bold text-[var(--text)]">
+            Standout Roles
+          </h2>
+          <p class="mt-3 text-[var(--text-muted)] max-w-2xl">
+            Two organizations I co-founded and helped run, one nonprofit, one
+            incorporated company.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4 sm:gap-5">
+          {roles.map((role, i) => (
+            <div
+              class="reveal relative rounded-xl border border-[var(--border)] bg-[var(--bg-panel)] p-6 sm:p-7 overflow-hidden"
+              data-reveal-delay={String((i % 2) * 80)}
+            >
+              <div
+                class="absolute left-0 top-0 bottom-0 w-1"
+                style={`background-color:${accent}`}
+                aria-hidden="true"
+              />
+              <div class="flex items-baseline justify-between gap-3">
+                <h3 class="text-xl sm:text-2xl font-semibold text-[var(--text)]">
+                  {role.org}
+                </h3>
+                <span class="font-mono text-xs text-[var(--text-faint)] whitespace-nowrap">
+                  {role.dateRange}
+                </span>
+              </div>
+              <p
+                class="mt-1 font-mono text-sm"
+                style={`color:${accent}`}
+              >
+                {role.role}
+              </p>
+
+              <p class="mt-4 text-[15px] leading-relaxed text-[var(--text-muted)]">
+                {role.summary}
+              </p>
+
+              {"contribution" in role && role.contribution && (
+                <p class="mt-3 text-[15px] leading-relaxed text-[var(--text)]">
+                  {role.contribution}
+                </p>
+              )}
+
+              {role.stats?.length > 0 && (
+                <div class="mt-5 flex gap-8">
+                  {role.stats.map((s) => (
+                    <div>
+                      <div
+                        class="font-mono text-2xl font-bold"
+                        style={`color:${accent}`}
+                      >
+                        {s.value}
+                      </div>
+                      <div class="font-mono text-[11px] uppercase tracking-wider text-[var(--text-faint)]">
+                        {s.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {role.tags?.length > 0 && (
+                <div class="mt-5 flex flex-wrap gap-1.5 border-t border-[var(--border)] pt-4">
+                  {role.tags.map((t) => (
+                    <span class="font-mono text-[11px] px-2 py-1 rounded bg-[var(--bg-panel-2)] text-[var(--text-muted)]">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
