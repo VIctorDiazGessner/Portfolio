@@ -149,7 +149,7 @@ export const siteConfig = {
         { value: "Additive", label: "Ceramic prototyping" },
       ],
       problem:
-        "Conventional radiation shielding relies on bulky water, lead, or cement. This RTX Raytheon-sponsored research investigated UV-curable ceramics for aerospace and nuclear shielding that could deliver comparable protection at a fraction of the size and weight.",
+        "Conventional radiation shielding relies on bulky water, lead, or cement. This RTX Raytheon-sponsored research investigated UV-curable ceramics (a boron-based ceramic composition) for aerospace and nuclear shielding that could deliver comparable protection at a fraction of the size and weight.",
       approach: [
         "Optimized ceramic material compositions through statistical analysis of reactor neutron flux data.",
         "Designed and additively manufactured iterative ceramic prototypes.",
@@ -219,7 +219,7 @@ export const siteConfig = {
       metrics: [
         { value: "~1/wk", label: "Ongoing harvest" },
         { value: "4", label: "Integrated subsystems" },
-        { value: "6", label: "Person team" },
+        { value: "7.5 wk", label: "Initial grow cycle" },
       ],
       hasModel: true,
       team: [
@@ -232,15 +232,16 @@ export const siteConfig = {
       ],
       advisor: "Prof. Gouldstone",
       context:
-        "Roughly 54 million Americans face food insecurity and 23.5 million live in areas without easy access to fresh produce. Most home hydroponic systems batch harvest (everything planted and harvested at once), which creates alternating gluts and gaps.",
+        "Roughly 54 million Americans face food insecurity and 23.5 million live in areas without easy access to fresh produce. Most home hydroponic products (LetPot, Gardyn, and similar) use batch harvesting, planting and harvesting everything at once, which creates alternating periods of excess and none. Endless Garden uses deep water culture (DWC) hydroponics, roots sitting in oxygenated, nutrient-dosed water, with staggered planting to deliver a steady supply instead.",
       problem:
         "Design a consumer-ready automated hydroponic appliance that delivers a steady, ongoing supply of fresh produce at home, instead of the feast-or-famine cycle of batch harvesting.",
       approach: [
-        "Staggered planting so fresh little gem romaine is ready roughly once a week on an ongoing basis, after an initial 7.5 week growth cycle.",
-        "A gravity fed plug refill system (IR and Hall effect sensors, servo controlled doors), inspired by a grocery store bottle dispenser, that automatically moves a new seedling into place after harvest.",
-        "A nutrient delivery system using a bang bang controller, relays, and peristaltic pumps to hold pH between 5.8 and 6.0.",
-        "A dual reservoir water level control system using a normally closed solenoid valve, so it fails shut rather than open to prevent flooding.",
-        "An IR break beam plant monitoring system with double check logic that notifies the user when a plant is ready to harvest.",
+        "Deep water culture with staggered planting: fresh little gem romaine is ready roughly once a week on an ongoing basis after an initial 7.5 week growth cycle, rather than all at once.",
+        "Plug refill system: gravity-fed seedling plugs sit on a 12 degree angled rail (reduced from an initial 30 degrees after friction calculations showed 30 degrees produced impact velocities too high to land reliably; an earlier spring-loaded concept was dropped because the roughly 0.01 lb plugs were too light and tipped over). A servo-controlled door, similar to a Pez dispenser, releases one plug at a time. A reflective IR sensor (Everlight ITR20001/T) detects a harvested plug and triggers an SG90 servo after a 3 second delay, while a Hall effect sensor flags when the reserve supply runs low. It supports 4 growing stations with 12 reserve plugs (16 total).",
+        "Nutrient delivery: a bang-bang controller switches relays driving peristaltic pumps that dose pH-up, pH-down, and nutrient solution from non-corrosive glass jars through silicone tubing, holding pH between 5.8 and 6.0. The dosing-rate error came out to roughly 3.7e-6 percent, well inside the 1 percent tolerance.",
+        "Water level control: a dual-reservoir design (a backup top tank and an active bottom grow tank) governed by a normally closed solenoid valve, chosen so it fails shut rather than open on power loss to prevent flooding, maintaining a consistent 6 inch water depth via gravity feed through a check valve.",
+        "Plant monitoring: an IR break-beam sensor (Tredix, roughly 1 meter range) detects 6 inches of growth above the seed and flags harvest readiness, using double-check logic (two checks a minute apart) to avoid false readings given how slowly the plants grow.",
+        "All subsystems run on an Arduino Giga R1 WiFi controller, with an LCD interface telling the user when to harvest or when water or nutrients are needed.",
       ],
       myContributions: [
         "Designed custom 3D printed mechanical components in SolidWorks, including the plug refill rail and door system, through iterative prototyping.",
@@ -262,20 +263,20 @@ export const siteConfig = {
       name: "Renter-Friendly Desk",
       org: "Northeastern, Mechanical Component Design",
       role: "Mechanical Analysis & Cost Lead",
-      dateRange: "2023",
+      dateRange: "2025",
       summary:
-        "A team project: a nesting shelf and desk that extends from a compact cabinet via a hand crank rack and pinion mechanism, for renters who need free standing furniture with no wall mounting. I led the static and gear stress analysis and the cost breakdown.",
+        "A team class project: a nesting shelf and desk that cranks out of a compact cabinet into a full desk via a rack-and-pinion mechanism, for renters who need free-standing furniture with no wall mounting. I co-ran the static and gear-stress analyses and led the cost breakdown.",
       skills: [
         "SolidWorks Simulation (FEA)",
-        "Stress Analysis",
+        "Static & Fatigue Analysis",
         "Gear Design",
         "Cost Analysis",
         "Mechanical Design",
       ],
       metrics: [
-        { value: "1.18", label: "Min safety factor (gear wear)" },
-        { value: "0.0155 in", label: "Deflection at 150N" },
-        { value: ">129", label: "Buckling safety factor" },
+        { value: "1.18", label: "Min SF (gear wear)" },
+        { value: "1.5", label: "Fatigue SF (Goodman)" },
+        { value: "$35.47", label: "Est. unit cost" },
       ],
       team: [
         "Kathryn Bozzay",
@@ -288,29 +289,33 @@ export const siteConfig = {
       context:
         "Renters often need workspace furniture that is free standing and space efficient, since they cannot mount anything to the walls.",
       problem:
-        "Build a free standing desk that collapses into a compact cabinet footprint and extends into a full desk on demand, with no wall mounting, and prove it is structurally sound.",
+        "Build a free-standing, nesting desk that collapses into a compact cabinet footprint and cranks out into a full desk on demand, with no wall mounting, and prove it structurally sound under a worst-case center load.",
       approach: [
-        "Designed a nesting shelf and desk driven by a hand crank rack and pinion mechanism that extends the desk from a compact cabinet.",
-        "Built a physical mockup and a final 3D printed prototype.",
-        "Ran a full engineering analysis: static failure and FEA, buckling and FEA, fatigue and FEA, connection (screw and hinge) analysis, and gear (bending and wear stress) analysis.",
-        "Used SolidWorks Simulation for the FEA, a lighter weight tool appropriate for a class project rather than a full ANSYS level simulation.",
+        "Designed a nesting shelf and desk driven by a hand-crank rack-and-pinion mechanism that extends a full desk out of a compact cabinet, with no wall mounting required.",
+        "Iterated from an original sketch to a first physical mockup for concept testing, then to a final 3D-printed working prototype shown to the class.",
+        "Ran the full analysis in SolidWorks Simulation (a lighter-weight FEA tool suited to a class component-design project, not a full ANSYS-level simulation): static failure and FEA, buckling and FEA, fatigue (Goodman criterion), connection analysis for screws and hinges, and gear analysis for the rack-and-pinion drive.",
+        "Benchmarked cost against the closest competitor (the Orvil desk, $122) and built a full manufacturing and cost breakdown.",
       ],
       myContributions: [
-        "Co-wrote the project summary.",
+        "Co-wrote the project summary, together with Erika Kraft and Amanda Curran.",
         "Performed the static failure analysis and its correlated FEA, together with Amanda Curran.",
-        "Performed the gear system analysis (bending stress, wear stress, torque and force on the rack and pinion), together with Amanda Curran.",
-        "Led the cost analysis and sourcing breakdown.",
+        "Performed the gear system analysis (bending stress, wear stress, torque and force, and extension speed), together with Amanda Curran.",
+        "Led the cost analysis, sourcing, and cost breakdown independently.",
       ],
       result: [
-        "At a 150N distributed load, no significant failure was found, with about 0.0155 inches of bending deflection at the center under load.",
-        "Hand calculated safety factors ranged very high (over 240 for static failure of the main desk section, over 129 for buckling).",
-        "The tightest safety factor in the whole design was about 1.18, for wear on one of the drive gears.",
+        "Static: under a worst-case 33.7 lbf point load at the center of the unsupported desk, FEA confirmed the design was safe, with static safety factors generally well over 100 (one comparison point showed an FEA buckling safety factor of 337.93 against a hand-calculated 139.82, the gap attributed to hand-calc simplifications).",
+        "Buckling was not a practical concern, with safety factors in the hundreds.",
+        "Fatigue (Goodman) on the desktop plank under zero-to-max cyclic loading gave a safety factor of 1.5, using an estimated ultimate strength of 13 MPa (polished particleboard) and an endurance limit of 816.4 psi, the most marginal of the major failure modes.",
+        "Connections: #8 flat-head wood screws (McMaster-Carr 90011A203) were specified with full preload and stiffness calculations; hinge bolts came out at safety factors of 48.3 (static) and 53.36 (cyclic), with hinge-side modes ranging from about 2.12 to 33.04.",
+        "Gears were the tightest constraint in the whole design: the lowest safety factor found anywhere was about 1.18, for wear on one of the drive gears.",
+        "Cost: an estimated unit price of $35.47 (plus about $2.00 packaging), against roughly $35,000 annual overhead and variable freight/marketing of about $23.90 to $31.00 per unit, assuming rural-China production with flat-pack shipping.",
       ],
       note: "Team project for a mechanical component design class, not a capstone or commercial product.",
       images: [
         { caption: "Static failure FEA (SolidWorks Simulation)" },
         { caption: "Buckling FEA" },
-        { caption: "Rack and pinion gear analysis" },
+        { caption: "Rack-and-pinion gear analysis" },
+        { caption: "Final 3D-printed prototype" },
       ],
     },
   ] as Project[],
@@ -318,19 +323,20 @@ export const siteConfig = {
   // ==========================================================================
   // COURSEWORK: compact supporting section (not full case studies).
   // ==========================================================================
+  courseworkNote: "ANSYS Fluent, Prof. Abedi's course",
   coursework: [
     {
       title: "Turbulent Pipe Flow Validation",
       tool: "ANSYS Fluent",
       blurb:
-        "Reproduced and validated the centerline velocity overshoot and wall shear stress undershoot in turbulent pipe flow, benchmarked against a 2022 International Journal of Thermal Sciences paper. Ran mesh independence studies and compared laminar, k-epsilon, k-omega, and Spalart-Allmaras turbulence models at Reynolds numbers of 19,000 and 105,000. Results matched the paper's trends closely.",
-      tags: ["ANSYS Fluent", "Turbulence models", "Mesh independence"],
+        "Built a 1:100 scale pipe model in ANSYS to reproduce and validate the centerline velocity overshoot and wall shear stress undershoot in the entrance region of turbulent pipe flow, benchmarked directly against Bopp and Weiss (2022, International Journal of Thermal Sciences). Ran a mesh independence study across three mesh densities, then compared laminar, k-epsilon, k-omega, and Spalart-Allmaras turbulence models at Reynolds numbers of 19,000 and 105,000 (plus Re 40, 60, 80, and 150 for further validation). The k-omega model was most consistent and matched the paper's overshoot behavior closely.",
+      tags: ["ANSYS Fluent", "Turbulence models", "Mesh independence", "Validation"],
     },
     {
       title: "Cessna 172 Airfoil Analysis",
       tool: "ANSYS Fluent",
       blurb:
-        "Modeled the Cessna 172 main wing (NACA 2412) and stabilizer (NACA 0012) airfoils at 63 m/s, analyzing pressure distribution, velocity fields, and lift and drag coefficients across angles of attack from -2 to 4 degrees.",
+        "Modeled the Cessna 172 main wing (NACA 2412) and stabilizer (NACA 0012) airfoils in ANSYS Fluent at 63 m/s, analyzing pressure distribution, velocity flow fields, and lift and drag coefficients across angles of attack from -2 to 4 degrees, capturing the expected trend where more negative angles increase downforce and cross-sectional drag.",
       tags: ["ANSYS Fluent", "Airfoil aerodynamics", "Lift & drag"],
     },
   ],
