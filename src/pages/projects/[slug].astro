@@ -1,0 +1,174 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import ProjectChart from "../../components/ProjectChart.astro";
+import ModelViewer from "../../components/ModelViewer.astro";
+import { siteConfig } from "../../config";
+import { withBase } from "../../lib/base";
+
+export function getStaticPaths() {
+  return siteConfig.projects.map((project, index) => {
+    const next = siteConfig.projects[(index + 1) % siteConfig.projects.length];
+    return {
+      params: { slug: project.slug },
+      props: { project, next },
+    };
+  });
+}
+
+const { project, next } = Astro.props;
+const accent = siteConfig.accentColor;
+---
+
+<BaseLayout
+  title={`${project.name} · ${project.org}`}
+  description={project.summary}
+>
+  <Header />
+
+  <main class="px-5 sm:px-8 pt-28 pb-20">
+    <article class="max-w-3xl mx-auto">
+      <!-- Back -->
+      <a
+        href={withBase("/#work")}
+        class="inline-flex items-center gap-2 font-mono text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
+      >
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        All work
+      </a>
+
+      <!-- Header -->
+      <header class="mt-8 reveal">
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs uppercase tracking-widest text-[var(--text-faint)]">
+          <span style={`color:${accent}`}>{project.org}</span>
+          <span>·</span>
+          <span>{project.role}</span>
+          <span>·</span>
+          <span>{project.dateRange}</span>
+        </div>
+        <h1 class="mt-4 text-4xl sm:text-6xl font-bold text-[var(--text)]">
+          {project.name}
+        </h1>
+        <p class="mt-5 text-lg sm:text-xl text-[var(--text-muted)] leading-relaxed">
+          {project.summary}
+        </p>
+      </header>
+
+      <!-- Metrics band -->
+      {
+        project.metrics?.length > 0 && (
+          <div class="reveal mt-10 grid grid-cols-2 sm:grid-cols-3 gap-px rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--border)]">
+            {project.metrics.map((m) => (
+              <div class="bg-[var(--bg-panel)] p-5">
+                <div class="font-mono text-2xl sm:text-3xl font-bold" style={`color:${accent}`}>
+                  {m.value}
+                </div>
+                <div class="mt-1 font-mono text-[11px] uppercase tracking-wider text-[var(--text-faint)]">
+                  {m.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        )
+      }
+
+      <!-- 3D model (Capstone only) -->
+      {
+        project.hasModel && (
+          <div class="mt-12">
+            <ModelViewer />
+          </div>
+        )
+      }
+
+      <!-- Problem -->
+      <section class="reveal mt-14">
+        <h2 class="font-mono text-sm uppercase tracking-widest text-[var(--text-faint)] flex items-center gap-3">
+          <span style={`color:${accent}`}>01</span> The problem
+        </h2>
+        <p class="mt-4 text-lg text-[var(--text-muted)] leading-relaxed">
+          {project.problem}
+        </p>
+      </section>
+
+      <!-- Approach -->
+      <section class="reveal mt-12">
+        <h2 class="font-mono text-sm uppercase tracking-widest text-[var(--text-faint)] flex items-center gap-3">
+          <span style={`color:${accent}`}>02</span> What I did
+        </h2>
+        <ul class="mt-5 space-y-4">
+          {
+            project.approach.map((step, i) => (
+              <li class="flex gap-4">
+                <span class="font-mono text-sm shrink-0 mt-0.5" style={`color:${accent}`}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p class="text-[17px] text-[var(--text-muted)] leading-relaxed">
+                  {step}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <!-- Chart (if any) -->
+      {
+        project.chart && (
+          <div class="mt-12">
+            <ProjectChart type={project.chart} />
+          </div>
+        )
+      }
+
+      <!-- Result -->
+      <section class="reveal mt-12">
+        <h2 class="font-mono text-sm uppercase tracking-widest text-[var(--text-faint)] flex items-center gap-3">
+          <span style={`color:${accent}`}>03</span> Outcome
+        </h2>
+        <ul class="mt-5 space-y-3">
+          {
+            project.result.map((r) => (
+              <li class="flex gap-3 text-[17px] text-[var(--text)] leading-relaxed">
+                <span class="mt-2.5 w-1.5 h-1.5 rounded-full shrink-0" style={`background-color:${accent}`} aria-hidden="true" />
+                <span>{r}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        {
+          project.note && (
+            <p class="mt-6 rounded-lg border border-[var(--border)] bg-[var(--bg-panel)] p-5 text-[15px] text-[var(--text-muted)] leading-relaxed">
+              <span class="font-mono text-xs uppercase tracking-wider" style={`color:${accent}`}>
+                Separately —{" "}
+              </span>
+              {project.note}
+            </p>
+          )
+        }
+      </section>
+
+      <!-- Next project -->
+      <nav class="reveal mt-16 pt-8 border-t border-[var(--border)] flex items-center justify-between gap-4">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--text-faint)]">
+          Next
+        </span>
+        <a
+          href={withBase(`/projects/${next.slug}`)}
+          class="group text-right"
+        >
+          <span class="block text-lg font-semibold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">
+            {next.name} →
+          </span>
+          <span class="font-mono text-xs text-[var(--text-faint)]">{next.org}</span>
+        </a>
+      </nav>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

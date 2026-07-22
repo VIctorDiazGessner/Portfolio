@@ -1,78 +1,74 @@
 ---
 import { siteConfig } from "../config";
+import { withBase } from "../lib/base";
 
-const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
-const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
-const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+const nav = [
+  { label: "Work", href: withBase("/#work") },
+  { label: "Experience", href: withBase("/#experience") },
+  { label: "Skills", href: withBase("/#skills") },
+  { label: "About", href: withBase("/#about") },
+  { label: "Contact", href: withBase("/#contact") },
+];
 ---
 
 <header
-  id="header"
-  class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
+  id="site-header"
+  class="fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b border-transparent"
 >
-  <nav class="max-w-7xl mx-auto px-8 py-4">
-    <ul class="flex items-center gap-8 justify-center">
-      <li>
-        <a
-          href="#about"
-          class="text-gray-700 hover:text-black transition-colors font-medium"
-        >
-          About
-        </a>
-      </li>
+  <nav
+    class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between gap-4"
+  >
+    <!-- Monogram / home -->
+    <a
+      href={withBase("/")}
+      class="font-mono font-bold tracking-tight text-[var(--text)] hover:text-[var(--accent)] transition-colors"
+      aria-label="Home"
+    >
+      <span style={`color: ${siteConfig.accentColor}`}>V</span>DG
+    </a>
+
+    <!-- Desktop nav -->
+    <ul
+      class="hidden md:flex items-center gap-7 text-sm font-mono text-[var(--text-muted)]"
+    >
       {
-        hasProjects && (
+        nav.map((item) => (
           <li>
             <a
-              href="#projects"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
+              href={item.href}
+              class="hover:text-[var(--text)] transition-colors"
             >
-              Projects
+              {item.label}
             </a>
           </li>
-        )
-      }
-      {
-        hasExperience && (
-          <li>
-            <a
-              href="#experience"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              Experience
-            </a>
-          </li>
-        )
-      }
-      {
-        hasEducation && (
-          <li>
-            <a
-              href="#education"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              Education
-            </a>
-          </li>
-        )
+        ))
       }
     </ul>
+
+    <!-- Resume CTA -->
+    <a
+      href={withBase(siteConfig.resumeUrl)}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-sm font-mono px-3.5 py-1.5 rounded-md border border-[var(--border-strong)] text-[var(--text)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+    >
+      Resume ↓
+    </a>
   </nav>
 </header>
 
 <script>
-  window.addEventListener("scroll", () => {
-    const header = document.getElementById("header");
-    if (window.scrollY > 100) {
-      header?.classList.add("bg-white/80", "backdrop-blur-sm");
+  const header = document.getElementById("site-header");
+  const onScroll = () => {
+    if (!header) return;
+    if (window.scrollY > 24) {
+      header.classList.add("bg-[#0a0b0d]/80", "backdrop-blur-md");
+      header.style.borderBottomColor = "var(--border)";
     } else {
-      header?.classList.remove("bg-white/80", "backdrop-blur-sm");
+      header.classList.remove("bg-[#0a0b0d]/80", "backdrop-blur-md");
+      header.style.borderBottomColor = "transparent";
     }
-  });
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
 </script>
-
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
-</style>

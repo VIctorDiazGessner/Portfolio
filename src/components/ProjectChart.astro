@@ -1,0 +1,96 @@
+---
+import { siteConfig } from "../config";
+
+interface Props {
+  type: "daps" | "sharkninja";
+}
+const { type } = Astro.props;
+const accent = siteConfig.accentColor;
+
+// Honest data pulled straight from the case-study facts.
+// `baseline` renders muted; `highlight` renders in the accent.
+const charts = {
+  daps: {
+    title: "Neutron-shielding performance",
+    caption: "Relative shielding performance vs. prior methods.",
+    delta: "+43%",
+    max: 143,
+    rows: [
+      { label: "Prior methods", value: 100, display: "100", highlight: false },
+      { label: "Optimized ceramic", value: 143, display: "143", highlight: true },
+    ],
+  },
+  sharkninja: {
+    title: "Physical prototype builds",
+    caption: "Builds required to converge on the manifold design.",
+    delta: "−75%",
+    max: 12,
+    rows: [
+      { label: "Before tool", value: 12, display: "12 builds", highlight: false },
+      { label: "With Python tool", value: 3, display: "3 builds", highlight: true },
+    ],
+  },
+} as const;
+
+const chart = charts[type];
+---
+
+<figure
+  class="reveal chart rounded-xl border border-[var(--border)] bg-[var(--bg-panel)] p-6 sm:p-8"
+>
+  <figcaption class="flex items-baseline justify-between gap-4 mb-6">
+    <div>
+      <p class="eyebrow">Result</p>
+      <h3 class="mt-2 text-lg font-semibold text-[var(--text)]">
+        {chart.title}
+      </h3>
+    </div>
+    <span class="font-mono text-3xl sm:text-4xl font-bold" style={`color: ${accent}`}>
+      {chart.delta}
+    </span>
+  </figcaption>
+
+  <div class="space-y-4">
+    {
+      chart.rows.map((row) => (
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-mono text-xs uppercase tracking-wider text-[var(--text-faint)]">
+              {row.label}
+            </span>
+            <span
+              class="font-mono text-sm"
+              style={row.highlight ? `color: ${accent}` : "color: var(--text-muted)"}
+            >
+              {row.display}
+            </span>
+          </div>
+          <div class="h-3 rounded-full bg-[var(--bg-panel-2)] overflow-hidden">
+            <div
+              class="bar h-full rounded-full"
+              style={`--target:${(row.value / chart.max) * 100}%; background-color:${row.highlight ? accent : "var(--border-strong)"}`}
+            />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <p class="mt-5 text-xs text-[var(--text-faint)]">{chart.caption}</p>
+</figure>
+
+<style>
+  .bar {
+    width: 0;
+    transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .chart.is-visible .bar {
+    width: var(--target);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bar {
+      width: var(--target);
+      transition: none;
+    }
+  }
+</style>

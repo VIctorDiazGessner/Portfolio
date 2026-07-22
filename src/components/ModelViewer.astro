@@ -1,0 +1,67 @@
+---
+import { siteConfig } from "../config";
+import { withBase } from "../lib/base";
+
+interface Props {
+  src?: string; // path in /public to a .glb/.gltf, e.g. "/models/ever-garden.glb"
+  poster?: string;
+  alt?: string;
+}
+const { src, poster, alt } = Astro.props;
+const accent = siteConfig.accentColor;
+const hasModel = Boolean(src);
+---
+
+<div class="reveal rounded-xl border border-[var(--border)] bg-[var(--bg-panel)] overflow-hidden">
+  <div class="flex items-center justify-between px-5 py-3 border-b border-[var(--border)]">
+    <p class="eyebrow">Interactive 3D — Ever Garden</p>
+    <span class="font-mono text-[11px] text-[var(--text-faint)]">
+      {hasModel ? "drag to rotate · scroll to zoom" : "awaiting model export"}
+    </span>
+  </div>
+
+  {
+    hasModel ? (
+      <model-viewer
+        src={withBase(src!)}
+        poster={poster ? withBase(poster) : undefined}
+        alt={alt ?? "Interactive 3D model of the Ever Garden appliance"}
+        camera-controls
+        auto-rotate
+        touch-action="pan-y"
+        shadow-intensity="1"
+        exposure="1"
+        style="width:100%; height:min(70vh,520px); background-color:var(--bg);"
+      />
+    ) : (
+      <div
+        class="aspect-[16/10] flex flex-col items-center justify-center text-center gap-4 px-6"
+        style="background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:32px 32px;"
+      >
+        <svg class="w-14 h-14 text-[var(--text-faint)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25">
+          <path d="M12 2 3 7v10l9 5 9-5V7l-9-5z" stroke-linejoin="round" />
+          <path d="M3 7l9 5 9-5M12 12v10" stroke-linejoin="round" />
+        </svg>
+        <div>
+          <p class="font-mono text-sm text-[var(--text)]">3D MODEL PLACEHOLDER</p>
+          <p class="mt-2 font-mono text-xs text-[var(--text-faint)] max-w-sm leading-relaxed">
+            The rotatable/zoomable SolidWorks model of the Ever Garden appliance
+            will live here. Export to
+            <span style={`color:${accent}`}> .glb / .gltf</span>, drop it in
+            <span style={`color:${accent}`}> public/models/</span>, and pass its
+            path to this component.
+          </p>
+        </div>
+      </div>
+    )
+  }
+</div>
+
+{
+  hasModel && (
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
+    />
+  )
+}

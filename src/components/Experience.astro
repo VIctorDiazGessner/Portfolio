@@ -1,73 +1,85 @@
 ---
 import { siteConfig } from "../config";
-const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
+import { withBase } from "../lib/base";
+
+const experience = siteConfig.experience ?? [];
 ---
 
 {
-  hasExperience && (
-    <section id="experience" class="p-8 sm:p-12 md:p-16 lg:p-24">
-      <div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <div class="lg:col-span-4">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-              Experience
-            </h2>
-            <div
-              class="w-[75px] h-[5px] mt-2 rounded-full"
-              style={`background-color: ${siteConfig.accentColor}`}
-            />
-          </div>
+  experience.length > 0 && (
+    <section id="experience" class="scroll-mt-20 px-5 sm:px-8 py-20 sm:py-28">
+      <div class="max-w-6xl mx-auto">
+        <div class="reveal mb-10 sm:mb-14">
+          <p class="eyebrow">Career</p>
+          <h2 class="mt-3 text-3xl sm:text-5xl font-bold text-[var(--text)]">
+            Experience
+          </h2>
+        </div>
 
-          <div class="lg:col-span-8">
-            <div class="relative">
-              {siteConfig.experience.map((exp, index) => (
-                <div class="relative mb-12 last:mb-0">
-                  {/* Timeline dot at top of card */}
-                  <div
-                    class="absolute left-1/2 -top-2 w-4 h-4 bg-white border-2 rounded-full -translate-x-1/2 z-20 transition-all duration-300"
-                    style={`border-color: ${siteConfig.accentColor}; background-color: ${siteConfig.accentColor}`}
-                  />
+        <ol class="relative border-l border-[var(--border)] ml-3 sm:ml-4">
+          {experience.map((exp) => (
+            <li class="reveal relative pl-8 sm:pl-10 pb-12 last:pb-0">
+              {/* node */}
+              <span
+                class="absolute -left-[7px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-[var(--bg)]"
+                style={`background-color: ${siteConfig.accentColor}`}
+                aria-hidden="true"
+              />
 
-                  {/* Connecting line below card */}
-                  {index < siteConfig.experience.length - 1 && (
-                    <div class="absolute left-1/2 bottom-0 w-0.5 h-12 bg-gray-300 -translate-x-1/2 translate-y-full z-10" />
-                  )}
+              <div class="rounded-xl border border-[var(--border)] bg-[var(--bg-panel)] p-5 sm:p-6">
+                <div class="flex items-start gap-4">
+                  {/* logo chip */}
+                  <div class="shrink-0 w-12 h-12 rounded-lg bg-white/95 flex items-center justify-center overflow-hidden p-1.5">
+                    {exp.logo ? (
+                      <img
+                        src={withBase(exp.logo)}
+                        alt={`${exp.company} logo`}
+                        width="48"
+                        height="48"
+                        loading="lazy"
+                        class="max-w-full max-h-full object-contain"
+                      />
+                    ) : (
+                      <span class="font-mono font-bold text-sm text-[#0a0b0d]">
+                        {exp.logoText}
+                      </span>
+                    )}
+                  </div>
 
-                  {/* Experience card */}
-                  <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-5 md:p-6 hover:shadow-md transition-shadow duration-300">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                      <div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-gray-900">
-                          {exp.title}
-                        </h3>
-                        <p
-                          class="text-base sm:text-lg"
-                          style={`color: ${siteConfig.accentColor}`}
-                        >
-                          {exp.company}
-                        </p>
-                      </div>
-                      <span class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-0">
+                  <div class="min-w-0 flex-1">
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                      <h3 class="text-lg font-semibold text-[var(--text)]">
+                        {exp.company}
+                      </h3>
+                      <span class="font-mono text-xs text-[var(--text-faint)] whitespace-nowrap">
                         {exp.dateRange}
                       </span>
                     </div>
-
-                    <ul class="space-y-2">
-                      {exp.bullets.map((bullet) => (
-                        <li class="flex items-start">
-                          <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0" />
-                          <span class="text-sm sm:text-base text-gray-600">
-                            {bullet}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
+                    <p
+                      class="text-sm font-medium"
+                      style={`color: ${siteConfig.accentColor}`}
+                    >
+                      {exp.title}
+                    </p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
+
+                <ul class="mt-4 space-y-2.5">
+                  {exp.bullets.map((b) => (
+                    <li class="flex gap-3 text-[15px] leading-relaxed text-[var(--text-muted)]">
+                      <span
+                        class="mt-2 w-1.5 h-1.5 rounded-full shrink-0"
+                        style={`background-color: ${siteConfig.accentColor}`}
+                        aria-hidden="true"
+                      />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   )

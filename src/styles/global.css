@@ -1,5 +1,139 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   DESIGN TOKENS — dark-mode-first, technical/engineering aesthetic.
+   Palette: near-black canvas, off-white text, one cyan accent used sparingly.
+   ========================================================================== */
+:root {
+  --bg: #0a0b0d; /* near-black canvas */
+  --bg-panel: #121418; /* raised panels / cards */
+  --bg-panel-2: #16191e; /* hover / nested */
+  --border: #1e2228; /* hairlines */
+  --border-strong: #2a2f37;
+  --text: #e7e9ec; /* primary off-white */
+  --text-muted: #8b9199; /* secondary */
+  --text-faint: #5b626b; /* tertiary / labels */
+  --accent: #38bdf8; /* signal cyan */
+  --accent-dim: rgba(56, 189, 248, 0.12);
+
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg);
+  color-scheme: dark;
+}
+
 body {
-  font-family: 'IBM Plex Mono', monospace;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+::selection {
+  background: var(--accent);
+  color: #04121a;
+}
+
+/* Accent-colored focus ring for keyboard users */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   BLUEPRINT GRID BACKGROUND
+   Subtle engineering-drawing texture. Fixed + very low opacity so it reads
+   as texture, not clutter. Disabled on small screens for performance.
+   ========================================================================== */
+.blueprint-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    rgba(0, 0, 0, 0.5),
+    transparent 75%
+  );
+  mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    rgba(0, 0, 0, 0.5),
+    transparent 75%
+  );
+  opacity: 0.5;
+}
+
+@media (max-width: 640px) {
+  .blueprint-bg {
+    display: none;
+  }
+}
+
+/* Small monospace "eyebrow" label used across sections */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   SCROLL-REVEAL — lightweight IntersectionObserver-driven animation.
+   Elements start hidden/translated; adding .is-visible animates them in.
+   Falls back to fully visible when JS or IO is unavailable, and respects
+   prefers-reduced-motion.
+   ========================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
