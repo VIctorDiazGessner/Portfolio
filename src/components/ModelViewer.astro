@@ -14,7 +14,7 @@ const hasModel = Boolean(src);
 
 <div class="reveal rounded-xl border border-[var(--border)] bg-[var(--bg-panel)] overflow-hidden">
   <div class="flex items-center justify-between px-5 py-3 border-b border-[var(--border)]">
-    <p class="eyebrow">Interactive 3D — Ever Garden</p>
+    <p class="eyebrow">Interactive 3D · Endless Garden</p>
     <span class="font-mono text-[11px] text-[var(--text-faint)]">
       {hasModel ? "drag to rotate · scroll to zoom" : "awaiting model export"}
     </span>
@@ -25,7 +25,7 @@ const hasModel = Boolean(src);
       <model-viewer
         src={withBase(src!)}
         poster={poster ? withBase(poster) : undefined}
-        alt={alt ?? "Interactive 3D model of the Ever Garden appliance"}
+        alt={alt ?? "Interactive 3D model of the Endless Garden appliance"}
         camera-controls
         auto-rotate
         touch-action="pan-y"
@@ -45,7 +45,7 @@ const hasModel = Boolean(src);
         <div>
           <p class="font-mono text-sm text-[var(--text)]">3D MODEL PLACEHOLDER</p>
           <p class="mt-2 font-mono text-xs text-[var(--text-faint)] max-w-sm leading-relaxed">
-            The rotatable/zoomable SolidWorks model of the Ever Garden appliance
+            The rotatable/zoomable SolidWorks model of the Endless Garden appliance
             will live here. Export to
             <span style={`color:${accent}`}> .glb / .gltf</span>, drop it in
             <span style={`color:${accent}`}> public/models/</span>, and pass its
@@ -60,6 +60,7 @@ const hasModel = Boolean(src);
 {
   hasModel && (
     <script
+      is:inline
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
     />

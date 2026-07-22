@@ -4,6 +4,7 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import ProjectChart from "../../components/ProjectChart.astro";
 import ModelViewer from "../../components/ModelViewer.astro";
+import ProjectGallery from "../../components/ProjectGallery.astro";
 import { siteConfig } from "../../config";
 import { withBase } from "../../lib/base";
 
@@ -19,6 +20,17 @@ export function getStaticPaths() {
 
 const { project, next } = Astro.props;
 const accent = siteConfig.accentColor;
+
+const isTeam = Boolean(project.team && project.team.length);
+const approachLabel = isTeam ? "The design" : "What I did";
+
+// Explicit section numbers (order is fixed): Problem, Approach,
+// [My contributions if team], Outcome.
+const numProblem = "01";
+const numApproach = "02";
+const hasContrib = Boolean(project.myContributions && project.myContributions.length);
+const numContrib = hasContrib ? "03" : null;
+const numResult = hasContrib ? "04" : "03";
 ---
 
 <BaseLayout
@@ -55,6 +67,33 @@ const accent = siteConfig.accentColor;
         <p class="mt-5 text-lg sm:text-xl text-[var(--text-muted)] leading-relaxed">
           {project.summary}
         </p>
+
+        {
+          isTeam && (
+            <p class="mt-5 text-sm text-[var(--text-faint)] leading-relaxed">
+              <span class="font-mono uppercase tracking-wider">
+                Team of {project.team!.length}:{" "}
+              </span>
+              {project.team!.map((member, i) => (
+                <span>
+                  <span
+                    class={member === siteConfig.name ? "text-[var(--text)]" : ""}
+                  >
+                    {member}
+                    {member === siteConfig.name ? " (me)" : ""}
+                  </span>
+                  {i < project.team!.length - 1 ? ", " : ""}
+                </span>
+              ))}
+              {project.advisor && (
+                <span>
+                  {" "}
+                  · Advisor: {project.advisor}
+                </span>
+              )}
+            </p>
+          )
+        }
       </header>
 
       <!-- Metrics band -->
@@ -75,7 +114,7 @@ const accent = siteConfig.accentColor;
         )
       }
 
-      <!-- 3D model (Capstone only) -->
+      <!-- 3D model (Endless Garden only) -->
       {
         project.hasModel && (
           <div class="mt-12">
@@ -84,10 +123,24 @@ const accent = siteConfig.accentColor;
         )
       }
 
+      <!-- Context (team/background framing) -->
+      {
+        project.context && (
+          <div class="reveal mt-12 border-l-2 pl-5" style={`border-color:${accent}`}>
+            <p class="font-mono text-xs uppercase tracking-widest text-[var(--text-faint)] mb-2">
+              Context
+            </p>
+            <p class="text-[17px] text-[var(--text-muted)] leading-relaxed">
+              {project.context}
+            </p>
+          </div>
+        )
+      }
+
       <!-- Problem -->
       <section class="reveal mt-14">
         <h2 class="font-mono text-sm uppercase tracking-widest text-[var(--text-faint)] flex items-center gap-3">
-          <span style={`color:${accent}`}>01</span> The problem
+          <span style={`color:${accent}`}>{numProblem}</span> The problem
         </h2>
         <p class="mt-4 text-lg text-[var(--text-muted)] leading-relaxed">
           {project.problem}
@@ -97,7 +150,7 @@ const accent = siteConfig.accentColor;
       <!-- Approach -->
       <section class="reveal mt-12">
         <h2 class="font-mono text-sm uppercase tracking-widest text-[var(--text-faint)] flex items-center gap-3">
-          <span style={`color:${accent}`}>02</span> What I did
+          <span style={`color:${accent}`}>{numApproach}</span> {approachLabel}
         </h2>
         <ul class="mt-5 space-y-4">
           {
@@ -115,6 +168,25 @@ const accent = siteConfig.accentColor;
         </ul>
       </section>
 
+      <!-- My contributions (team projects) -->
+      {
+        hasContrib && (
+          <section class="reveal mt-12">
+            <h2 class="font-mono text-sm uppercase tracking-widest text-[var(--text-faint)] flex items-center gap-3">
+              <span style={`color:${accent}`}>{numContrib}</span> My contributions
+            </h2>
+            <ul class="mt-5 space-y-3">
+              {project.myContributions!.map((c) => (
+                <li class="flex gap-3 text-[17px] text-[var(--text)] leading-relaxed">
+                  <span class="mt-2.5 w-1.5 h-1.5 rounded-full shrink-0" style={`background-color:${accent}`} aria-hidden="true" />
+                  <span>{c}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
       <!-- Chart (if any) -->
       {
         project.chart && (
@@ -127,7 +199,7 @@ const accent = siteConfig.accentColor;
       <!-- Result -->
       <section class="reveal mt-12">
         <h2 class="font-mono text-sm uppercase tracking-widest text-[var(--text-faint)] flex items-center gap-3">
-          <span style={`color:${accent}`}>03</span> Outcome
+          <span style={`color:${accent}`}>{numResult}</span> Outcome
         </h2>
         <ul class="mt-5 space-y-3">
           {
@@ -144,13 +216,22 @@ const accent = siteConfig.accentColor;
           project.note && (
             <p class="mt-6 rounded-lg border border-[var(--border)] bg-[var(--bg-panel)] p-5 text-[15px] text-[var(--text-muted)] leading-relaxed">
               <span class="font-mono text-xs uppercase tracking-wider" style={`color:${accent}`}>
-                Separately —{" "}
+                Note:{" "}
               </span>
               {project.note}
             </p>
           )
         }
       </section>
+
+      <!-- Gallery -->
+      {
+        project.images && project.images.length > 0 && (
+          <div class="mt-12">
+            <ProjectGallery images={project.images} />
+          </div>
+        )
+      }
 
       <!-- Next project -->
       <nav class="reveal mt-16 pt-8 border-t border-[var(--border)] flex items-center justify-between gap-4">

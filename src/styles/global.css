@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   DESIGN TOKENS — dark-mode-first, technical/engineering aesthetic.
+   DESIGN TOKENS: dark-mode-first, technical/engineering aesthetic.
    Palette: near-black canvas, off-white text, one cyan accent used sparingly.
    ========================================================================== */
 :root {
-  --bg: #0a0b0d; /* near-black canvas */
-  --bg-panel: #121418; /* raised panels / cards */
-  --bg-panel-2: #16191e; /* hover / nested */
-  --border: #1e2228; /* hairlines */
-  --border-strong: #2a2f37;
-  --text: #e7e9ec; /* primary off-white */
-  --text-muted: #8b9199; /* secondary */
-  --text-faint: #5b626b; /* tertiary / labels */
+  --bg: #12161f; /* deep blue-toned slate canvas */
+  --bg-panel: #1a2130; /* raised panels / cards */
+  --bg-panel-2: #222b3b; /* hover / nested */
+  --border: #2a3446; /* hairlines */
+  --border-strong: #3a465c;
+  --text: #e7eaf0; /* primary off-white (slightly cool) */
+  --text-muted: #98a1b0; /* secondary */
+  --text-faint: #626d80; /* tertiary / labels */
   --accent: #38bdf8; /* signal cyan */
   --accent-dim: rgba(56, 189, 248, 0.12);
 
@@ -108,7 +108,7 @@ button:focus-visible {
 }
 
 /* ==========================================================================
-   SCROLL-REVEAL — lightweight IntersectionObserver-driven animation.
+   SCROLL-REVEAL: lightweight IntersectionObserver-driven animation.
    Elements start hidden/translated; adding .is-visible animates them in.
    Falls back to fully visible when JS or IO is unavailable, and respects
    prefers-reduced-motion.

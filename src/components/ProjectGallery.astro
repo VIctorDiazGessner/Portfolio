@@ -1,0 +1,58 @@
+---
+import { siteConfig } from "../config";
+import { withBase } from "../lib/base";
+import type { ProjectImage } from "../config";
+
+interface Props {
+  images: ProjectImage[];
+  label?: string;
+}
+const { images, label = "Visuals" } = Astro.props;
+const accent = siteConfig.accentColor;
+---
+
+{
+  images?.length > 0 && (
+    <section class="reveal">
+      <h2 class="font-mono text-sm uppercase tracking-widest text-[var(--text-faint)] mb-5">
+        {label}
+      </h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {images.map((img) =>
+          img.src ? (
+            <figure class="rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--bg-panel)]">
+              <img
+                src={withBase(img.src)}
+                alt={img.caption}
+                loading="lazy"
+                class="w-full aspect-[4/3] object-cover"
+              />
+              <figcaption class="px-4 py-3 font-mono text-xs text-[var(--text-muted)] border-t border-[var(--border)]">
+                {img.caption}
+              </figcaption>
+            </figure>
+          ) : (
+            <figure class="rounded-xl overflow-hidden border border-dashed border-[var(--border-strong)] bg-[var(--bg-panel)]">
+              <div
+                class="w-full aspect-[4/3] flex flex-col items-center justify-center gap-2 text-center px-4"
+                style="background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:28px 28px;"
+              >
+                <svg class="w-8 h-8 text-[var(--text-faint)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="3" y="4" width="18" height="16" rx="2" />
+                  <circle cx="8.5" cy="9.5" r="1.5" />
+                  <path d="M21 16l-5-5L5 20" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="font-mono text-[11px]" style={`color:${accent}`}>
+                  IMAGE PLACEHOLDER
+                </span>
+              </div>
+              <figcaption class="px-4 py-3 font-mono text-xs text-[var(--text-muted)] border-t border-[var(--border)]">
+                {img.caption}
+              </figcaption>
+            </figure>
+          ),
+        )}
+      </div>
+    </section>
+  )
+}

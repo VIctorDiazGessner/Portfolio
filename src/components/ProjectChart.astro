@@ -2,7 +2,7 @@
 import { siteConfig } from "../config";
 
 interface Props {
-  type: "daps" | "sharkninja";
+  type: "sharkninja";
 }
 const { type } = Astro.props;
 const accent = siteConfig.accentColor;
@@ -10,16 +10,6 @@ const accent = siteConfig.accentColor;
 // Honest data pulled straight from the case-study facts.
 // `baseline` renders muted; `highlight` renders in the accent.
 const charts = {
-  daps: {
-    title: "Neutron-shielding performance",
-    caption: "Relative shielding performance vs. prior methods.",
-    delta: "+43%",
-    max: 143,
-    rows: [
-      { label: "Prior methods", value: 100, display: "100", highlight: false },
-      { label: "Optimized ceramic", value: 143, display: "143", highlight: true },
-    ],
-  },
   sharkninja: {
     title: "Physical prototype builds",
     caption: "Builds required to converge on the manifold design.",
