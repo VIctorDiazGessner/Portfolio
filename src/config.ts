@@ -405,18 +405,16 @@ export const siteConfig = {
       tags: ["Nonprofit", "Mentorship", "Mentors from RTX, J&J, SharkNinja"],
     },
     {
-      org: "Spondooli, LLC",
+      org: "Spondooli LLC",
       role: "Co-Founder & CFO",
-      dateRange: "Sep 2019 - Aug 2021",
-      summary:
-        "Co-founded a real, Delaware-incorporated company (not a school project) that built a fun, interactive tool to teach financial literacy from a young age, for students from middle school through university. The idea originated in a business class after finding that roughly 50% of the US population is financially illiterate, but the company was designed, built, and incorporated entirely outside of school. We sold the product to a handful of schools and grew a meaningful base of active users beyond them.",
-      contribution:
-        "My role: business plan, financials, and fundraising, plus working the school deals directly.",
-      stats: [
-        { value: "DE", label: "Incorporated" },
-        { value: "Revenue", label: "Sold to schools" },
+      dateRange: "Sep 2019 to Aug 2021",
+      website: "https://spondooli.com/",
+      websiteLabel: "spondooli.com",
+      body: [
+        "Roughly half the U.S. population is financially illiterate, and most people reach adulthood without ever learning how the stock market or basic banking actually works. Spondooli is a stock market and banking simulator built to close that gap: it gives users access to real stock market data with the safety of simulated money, teaching financial literacy through a game rather than a textbook.",
+        "We incorporated the company in Delaware, built the product, and took it to market ourselves. Spondooli has been used in classrooms, including at Gulliver Preparatory in Miami, and has also built a meaningful base of active users entirely outside of those school partnerships.",
+        "As Co-Founder and CFO, I led the business plan, owned the financials, ran fundraising, and negotiated the school deals directly. Spondooli is still active and in continued development today.",
       ],
-      tags: ["Incorporated company", "Financial literacy", "Fundraising", "B2B Sales"],
     },
   ],
 
