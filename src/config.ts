@@ -66,9 +66,6 @@ export const siteConfig = {
     "I'm most drawn to hardware that matters: defense, aerospace, and autonomous systems, aerial and underwater, energy, and consumer products, at high-growth startups and established product companies alike.",
   ],
 
-  relocation:
-    "Open to full-time roles in Boston, NYC, California, the UK, or France, or relocation for the right team.",
-
   certifications: [{ name: "Lean Six Sigma Green Belt" }],
 
   // -- Skills grouped by discipline (CAD, programming, analysis/testing, mfg/ops) --

@@ -27,26 +27,6 @@ const bio = siteConfig.bio ?? [];
           }
         </div>
 
-        {
-          siteConfig.relocation && (
-            <p class="mt-6 flex items-start gap-2.5 text-[15px] text-[var(--text)]">
-              <svg
-                class="w-5 h-5 shrink-0 mt-0.5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke={siteConfig.accentColor}
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              <span>{siteConfig.relocation}</span>
-            </p>
-          )
-        }
       </div>
 
       <!-- Education -->
