@@ -496,7 +496,7 @@ export const siteConfig = {
       dateRange: "2022 - May 2026",
       achievements: [
         "Magna Cum Laude",
-        "3.7 GPA, Dean's List all semesters",
+        "3.8 GPA, Dean's List all semesters",
         "Treasurer, American Society of Mechanical Engineers",
       ],
     },
