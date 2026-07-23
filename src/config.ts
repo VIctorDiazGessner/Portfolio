@@ -57,13 +57,13 @@ export const siteConfig = {
     github: "https://github.com/VIctorDiazGessner/",
   },
 
-  // Full bio, rendered directly below the hero. Kept close to verbatim.
+  // Full bio, rendered directly below the hero. First person, site-wide voice.
   bio: [
-    "Victor Diaz Gessner is a mechanical engineer with hands-on industrial and manufacturing engineering experience, focused on turning early-stage designs into manufacturable, high-volume products. His work lives in the messy middle, where a design has to survive contact with manufacturing, cost targets, and a ship date.",
-    "At SharkNinja, he designed and validated mechanical systems for next-generation wet/dry vacuums in Creo and built a Python fluid-dynamics model that cut iteration cycles by 75%. At Johnson & Johnson MedTech, he applied Lean Six Sigma, yield analysis, and root-cause investigation to deliver a 23% yield gain and over $1.3M in avoided cost. In defense and aerospace materials research, he improved neutron-shielding performance by 43% through statistical analysis and additive prototyping. Different industries, one instinct: find the problem, model it, and design the fix.",
-    "Victor is fluent in SolidWorks, Creo, and Onshape, works comfortably in Python, MATLAB, and CFD (ANSYS Fluent), and moves easily between the CAD screen, the test bench, and the design review.",
-    "He is trilingual, native in English, French, and Spanish, and holds dual US and EU citizenship.",
-    "He is most drawn to hardware that matters: defense, aerospace, and autonomous systems, aerial and underwater, energy, and consumer products, at high-growth startups and established product companies alike.",
+    "I'm a mechanical engineer with hands-on industrial and manufacturing engineering experience, focused on turning early-stage designs into manufacturable, high-volume products. My work lives in the messy middle, where a design has to survive contact with manufacturing, cost targets, and a ship date.",
+    "At SharkNinja, I designed and validated mechanical systems for next-generation wet/dry vacuums in Creo and built a Python fluid-dynamics model that cut iteration cycles by 75%. At Johnson & Johnson MedTech, I applied Lean Six Sigma, yield analysis, and root-cause investigation to deliver a 23% yield gain and over $1.3M in avoided cost. In defense and aerospace materials research, I improved neutron-shielding performance by 43% through statistical analysis and additive prototyping. Different industries, one instinct: find the problem, model it, and design the fix.",
+    "I'm fluent in SolidWorks, Creo, and Onshape, work comfortably in Python, MATLAB, and CFD (ANSYS Fluent), and move easily between the CAD screen, the test bench, and the design review.",
+    "I'm trilingual, native in English, French, and Spanish, and I hold dual US and EU citizenship.",
+    "I'm most drawn to hardware that matters: defense, aerospace, and autonomous systems, aerial and underwater, energy, and consumer products, at high-growth startups and established product companies alike.",
   ],
 
   relocation:
