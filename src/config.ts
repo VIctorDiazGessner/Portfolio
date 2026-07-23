@@ -84,7 +84,6 @@ export const siteConfig = {
       category: "Manufacturing & Ops",
       skills: [
         "Design for Manufacturing",
-        "Injection Molding",
         "Lean Six Sigma",
         "Statistical Process Control",
         "CAPA / FDA Documentation",
@@ -396,6 +395,8 @@ export const siteConfig = {
       org: "Engineer Forward, Inc.",
       role: "Co-Founder & President",
       dateRange: "Nonprofit",
+      website: "https://engineer-forward.org/",
+      websiteLabel: "engineer-forward.org",
       summary:
         "Co-founded a peer-mentorship nonprofit connecting engineering students with recent graduates who have navigated the same academic and professional challenges. Incorporated as a Massachusetts nonprofit corporation (Articles of Organization filed), with bylaws drafted and a board of directors formed, currently pursuing 501(c)(3) status.",
       stats: [
@@ -415,6 +416,11 @@ export const siteConfig = {
         "We incorporated the company in Delaware, built the product, and took it to market ourselves. Spondooli has been used in classrooms, including at Gulliver Preparatory in Miami, and has also built a meaningful base of active users entirely outside of those school partnerships.",
         "As Co-Founder and CFO, I led the business plan, owned the financials, ran fundraising, and negotiated the school deals directly. Spondooli is still active and in continued development today.",
       ],
+      stats: [
+        { value: "DE", label: "Incorporated" },
+        { value: "Active", label: "In development" },
+      ],
+      tags: ["Business Plan", "Financials", "Fundraising", "B2B Sales"],
     },
   ],
 

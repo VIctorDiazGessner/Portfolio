@@ -10,18 +10,22 @@ import { withBase } from "../../lib/base";
 
 export function getStaticPaths() {
   // Main engineering projects + ANSYS coursework projects both get pages.
-  const all = [...siteConfig.projects, ...siteConfig.ansysProjects];
-  return all.map((project, index) => {
-    const next = all[(index + 1) % all.length];
-    return {
+  // "next" cycles within each group so ANSYS pages stay nested together.
+  const make = (list: any[], isAnsys: boolean) =>
+    list.map((project, index) => ({
       params: { slug: project.slug },
-      props: { project, next },
-    };
-  });
+      props: { project, next: list[(index + 1) % list.length], isAnsys },
+    }));
+  return [
+    ...make(siteConfig.projects, false),
+    ...make(siteConfig.ansysProjects, true),
+  ];
 }
 
-const { project, next } = Astro.props;
+const { project, next, isAnsys } = Astro.props;
 const accent = siteConfig.accentColor;
+const backHref = isAnsys ? withBase("/projects/ansys") : withBase("/#work");
+const backLabel = isAnsys ? "ANSYS projects" : "All work";
 
 const isTeam = Boolean(project.team && project.team.length);
 const approachLabel = isTeam ? "The design" : "What I did";
@@ -45,13 +49,13 @@ const numResult = hasContrib ? "04" : "03";
     <article class="max-w-3xl mx-auto">
       <!-- Back -->
       <a
-        href={withBase("/#work")}
+        href={backHref}
         class="inline-flex items-center gap-2 font-mono text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
       >
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M19 12H5M12 19l-7-7 7-7" />
         </svg>
-        All work
+        {backLabel}
       </a>
 
       <!-- Header -->

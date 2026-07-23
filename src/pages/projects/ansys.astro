@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { siteConfig } from "../../config";
+import { withBase } from "../../lib/base";
+
+const ansysProjects = siteConfig.ansysProjects ?? [];
+---
+
+<BaseLayout
+  title="ANSYS Engineering Projects"
+  description="CFD studies in ANSYS Fluent: turbulent pipe flow validation and Cessna 172 airfoil analysis."
+>
+  <Header />
+
+  <main class="px-5 sm:px-8 pt-28 pb-20">
+    <div class="max-w-6xl mx-auto">
+      <!-- Back -->
+      <a
+        href={withBase("/#work")}
+        class="inline-flex items-center gap-2 font-mono text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
+      >
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Engineering Projects
+      </a>
+
+      <header class="mt-8 reveal">
+        <p class="eyebrow">{siteConfig.ansysNote}</p>
+        <h1 class="mt-3 text-4xl sm:text-6xl font-bold text-[var(--text)]">
+          ANSYS Engineering Projects
+        </h1>
+        <p class="mt-5 text-lg text-[var(--text-muted)] max-w-2xl leading-relaxed">
+          Two computational fluid dynamics studies built in ANSYS Fluent.
+          Choose one to open its full write-up.
+        </p>
+      </header>
+
+      <div class="mt-10 grid sm:grid-cols-2 gap-4 sm:gap-5">
+        {ansysProjects.map((project, i) => (
+          <ProjectCard project={project} index={i} />
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
