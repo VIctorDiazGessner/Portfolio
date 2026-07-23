@@ -45,7 +45,7 @@ export const siteConfig = {
     "Mechanical Engineer and Industrial Engineer Building Hardware Across Aerospace, Energy, and Tech",
   description:
     "Victor Diaz Gessner, mechanical engineer (Northeastern, B.S. Mechanical Engineering, Magna Cum Laude) working in product design, advanced materials, and manufacturing and process engineering across aerospace, energy, and technology hardware.",
-  accentColor: "#38BDF8", // signal cyan
+  accentColor: "#0E7490", // deep cyan, legible on white
 
   // Placeholder assets, swap when finals are provided.
   resumeUrl: "/resume.pdf", // PLACEHOLDER: drop the real PDF at public/resume.pdf

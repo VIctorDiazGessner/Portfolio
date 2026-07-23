@@ -5,16 +5,16 @@
    Palette: near-black canvas, off-white text, one cyan accent used sparingly.
    ========================================================================== */
 :root {
-  --bg: #12161f; /* deep blue-toned slate canvas */
-  --bg-panel: #1a2130; /* raised panels / cards */
-  --bg-panel-2: #222b3b; /* hover / nested */
-  --border: #2a3446; /* hairlines */
-  --border-strong: #3a465c;
-  --text: #e7eaf0; /* primary off-white (slightly cool) */
-  --text-muted: #98a1b0; /* secondary */
-  --text-faint: #626d80; /* tertiary / labels */
-  --accent: #38bdf8; /* signal cyan */
-  --accent-dim: rgba(56, 189, 248, 0.12);
+  --bg: #ffffff; /* white canvas */
+  --bg-panel: #f6f7f9; /* raised panels / cards */
+  --bg-panel-2: #eef0f3; /* hover / nested */
+  --border: #e2e5ea; /* hairlines */
+  --border-strong: #cbd1da;
+  --text: #14181f; /* primary near-black (slightly cool) */
+  --text-muted: #4b5563; /* secondary */
+  --text-faint: #7a828e; /* tertiary / labels */
+  --accent: #0e7490; /* deep cyan, legible on white */
+  --accent-dim: rgba(14, 116, 137, 0.1);
 
   --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -27,7 +27,7 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--bg);
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
@@ -54,7 +54,7 @@ h4,
 
 ::selection {
   background: var(--accent);
-  color: #04121a;
+  color: #ffffff;
 }
 
 /* Accent-colored focus ring for keyboard users */
