@@ -3,6 +3,8 @@ import { siteConfig } from "../config";
 
 const groups = siteConfig.skillGroups ?? [];
 const languages = siteConfig.languages ?? [];
+const certifications = siteConfig.certifications ?? [];
+const accent = siteConfig.accentColor;
 ---
 
 {
@@ -44,8 +46,37 @@ const languages = siteConfig.languages ?? [];
           ))}
         </div>
 
-        {languages.length > 0 && (
+        {certifications.length > 0 && (
           <div class="reveal mt-5 flex flex-wrap items-center gap-3">
+            <span class="font-mono text-xs uppercase tracking-widest text-[var(--text-faint)]">
+              Certifications
+            </span>
+            {certifications.map((c) => (
+              <span
+                class="inline-flex items-center gap-2 text-sm font-medium px-3 py-1.5 rounded-md border bg-[var(--bg-panel)]"
+                style={`border-color:${accent}55; color:${accent}`}
+              >
+                <svg
+                  class="w-4 h-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="8" r="6" />
+                  <path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5" />
+                </svg>
+                {c.name}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {languages.length > 0 && (
+          <div class="reveal mt-4 flex flex-wrap items-center gap-3">
             <span class="font-mono text-xs uppercase tracking-widest text-[var(--text-faint)]">
               Languages
             </span>

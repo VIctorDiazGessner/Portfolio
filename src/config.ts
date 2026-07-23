@@ -41,7 +41,8 @@ export type Project = {
 export const siteConfig = {
   name: "Victor Diaz Gessner",
   title: "Mechanical Engineer",
-  tagline: "Mechanical engineer building hardware across aerospace, energy, and tech.",
+  tagline:
+    "Mechanical Engineer and Industrial Engineer Building Hardware Across Aerospace, Energy, and Tech",
   description:
     "Victor Diaz Gessner, mechanical engineer (Northeastern, B.S. Mechanical Engineering, Magna Cum Laude) working in product design, advanced materials, and manufacturing and process engineering across aerospace, energy, and technology hardware.",
   accentColor: "#38BDF8", // signal cyan
@@ -56,24 +57,43 @@ export const siteConfig = {
     github: "https://github.com/VIctorDiazGessner/",
   },
 
-  aboutMe:
-    "I'm a mechanical engineer graduating from Northeastern University in May 2026 (B.S. Mechanical Engineering, Magna Cum Laude, 3.7 GPA). My background spans product design, materials research, and manufacturing and process engineering, from optimizing fluid systems and characterizing shielding ceramics to scaling FDA-regulated production lines. I'm drawn to hard technical problems across hardware, energy, and tech, and I believe the best mechanical designs come from genuinely understanding the underlying mechanisms, then aligning the right people to deliver solutions that hold up in the real world.",
+  // Full bio, rendered directly below the hero. Kept close to verbatim.
+  bio: [
+    "Victor Diaz Gessner is a mechanical engineer with hands-on industrial and manufacturing engineering experience, focused on turning early-stage designs into manufacturable, high-volume products. His work lives in the messy middle, where a design has to survive contact with manufacturing, cost targets, and a ship date.",
+    "At SharkNinja, he designed and validated mechanical systems for next-generation wet/dry vacuums in Creo and built a Python fluid-dynamics model that cut iteration cycles by 75%. At Johnson & Johnson MedTech, he applied Lean Six Sigma, yield analysis, and root-cause investigation to deliver a 23% yield gain and over $1.3M in avoided cost. In defense and aerospace materials research, he improved neutron-shielding performance by 43% through statistical analysis and additive prototyping. Different industries, one instinct: find the problem, model it, and design the fix.",
+    "Victor is fluent in SolidWorks, Creo, and Onshape, works comfortably in Python, MATLAB, and CFD (ANSYS Fluent), and moves easily between the CAD screen, the test bench, and the design review.",
+    "He is trilingual, native in English, French, and Spanish, and holds dual US and EU citizenship.",
+    "He is most drawn to hardware that matters: defense, aerospace, and autonomous systems, aerial and underwater, energy, and consumer products, at high-growth startups and established product companies alike.",
+  ],
+
+  relocation:
+    "Open to full-time roles in Boston, NYC, California, the UK, or France, or relocation for the right team.",
+
+  certifications: [{ name: "Lean Six Sigma Green Belt" }],
 
   // -- Skills grouped by discipline (CAD, programming, analysis/testing, mfg/ops) --
   skillGroups: [
     {
       category: "CAD & Design",
-      skills: ["SolidWorks", "PTC Creo", "AutoCAD", "Onshape"],
+      skills: [
+        "Mechanical Design",
+        "SolidWorks",
+        "PTC Creo",
+        "Siemens NX",
+        "Onshape",
+        "AutoCAD",
+      ],
     },
     {
       category: "Programming",
-      skills: ["Python", "C++", "JavaScript", "MATLAB", "Minitab"],
+      skills: ["Python", "MATLAB", "C++", "JavaScript", "Minitab"],
     },
     {
       category: "Analysis & Testing",
       skills: [
-        "ANSYS Fluent (CFD)",
+        "CFD / ANSYS Fluent",
         "SolidWorks Simulation (FEA)",
+        "Root Cause Analysis",
         "Instron Tensile Testing",
         "SEM Imaging",
         "Statistical Analysis",
@@ -81,14 +101,16 @@ export const siteConfig = {
       ],
     },
     {
-      category: "Manufacturing & Ops",
+      category: "Manufacturing & Operations",
       skills: [
-        "Design for Manufacturing",
-        "Lean Six Sigma",
+        "Industrial & Manufacturing Engineering",
+        "New Product Development",
+        "DFM / DFA",
+        "Lean Six Sigma (Green Belt)",
+        "Prototyping & Additive Manufacturing",
         "Statistical Process Control",
         "CAPA / FDA Documentation",
         "Fixture Design",
-        "FDM / SLA Prototyping",
       ],
     },
   ],
