@@ -12,13 +12,11 @@ Asset folder: `public/reports/`  (full path: `C:\Users\linux\OneDrive\Documents\
 
 ---
 
-## 1. Still needed
+## 1. Still needed / optional
 
-- [ ] **Endless Garden capstone photos** (the 3D model was removed, so these carry the project).
-      Drop into `public/reports/` and I'll wire the `src:` lines. Currently placeholders:
-  - "3D printed plug refill mechanism"
-  - "CAD render, plug refill rail and door system"
-  - "Assembled prototype"
+- [ ] **Remaining Endless Garden UI screens** (optional). Four of the eight LCD screens are on
+      the page (intro, harvest, pH, water). Drop the other four in `public/reports/` if you want
+      them shown too, and I'll wire them.
 
 ## 2. Content to confirm before going live
 
@@ -27,12 +25,6 @@ Asset folder: `public/reports/`  (full path: `C:\Users\linux\OneDrive\Documents\
 - [ ] **Cessna 172 lift sign** — the report itself flags that lift coefficient trends the
       "wrong" way with angle of attack, pointing to a solver sign/reference-frame convention.
       Confirm the convention before treating those numbers as physical.
-
-## 3. Heads-up
-
-- `Final-Design-Report-desk.pdf` is ~27 MB. It works, but it makes the repo heavy and the
-  embedded viewer slow to load. Consider compressing it (e.g. a "reduced size" export) if you
-  want faster page loads.
 
 ---
 
@@ -45,6 +37,10 @@ Asset folder: `public/reports/`  (full path: `C:\Users\linux\OneDrive\Documents\
   **Endless Garden** exec summary.
 - **DAPS:** added the total-density-normalization figure and gave all four photos descriptive
   captions (density screening, SEM lattice alignment, SEM inconsistency, Rhode Island results).
+- **Endless Garden:** wired the real build photos (full CAD, assembled prototype) and four LCD
+  UI screens; added the UI/display story to My Contributions (100+ hrs on a third-party screen,
+  the two-weeks-out decision to switch to a first-party Arduino display, ~40 hrs of refinement)
+  and updated the role note to credit the UI to Victor. Desk report PDF reduced to ~2.7 MB.
 - Added the **High-Re Lid-Driven Cavity** ANSYS project (HW 3A), built from the report.
 - **Removed the Turbulent Pipe Flow Validation** ANSYS project entirely.
 - **Removed the image placeholders on the ANSYS projects** (readers see the figures in the

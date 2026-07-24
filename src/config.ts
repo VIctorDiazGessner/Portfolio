@@ -243,11 +243,12 @@ export const siteConfig = {
       role: "Mechanical Design & System Integration",
       dateRange: "Jun - Dec 2025",
       summary:
-        "A 6-person capstone: an automated hydroponic countertop system using deep water culture and staggered planting to deliver fresh produce about once a week. I led mechanical design of custom 3D printed components and contributed to system integration.",
+        "A 6-person capstone: an automated hydroponic countertop system using deep water culture and staggered planting to deliver fresh produce about once a week. I led mechanical design of custom 3D printed components, built the LCD user interface, and contributed to system integration.",
       skills: [
         "SolidWorks",
         "3D Printing / Prototyping",
         "Mechanical Design",
+        "Arduino / Embedded UI",
         "System Integration",
         "DWC Hydroponics",
       ],
@@ -279,18 +280,22 @@ export const siteConfig = {
       ],
       myContributions: [
         "Designed custom 3D printed mechanical components in SolidWorks, including the plug refill rail and door system, through iterative prototyping.",
+        "Owned the LCD user interface end to end. After more than 100 hours trying to get a third-party display to run reliably, I made the call two weeks before the deadline to cut losses and switch to a first-party Arduino display. The rebuilt code worked on the first try, and I spent roughly 40 more hours refining the interface into its final form. The bigger takeaway was the judgment call itself: root-causing a stubborn problem, then deciding when to stop fighting it and change direction.",
         "Contributed to overall system integration across the team's subsystems.",
       ],
       result: [
         "Delivered a working prototype demonstrating staggered, ongoing harvest rather than batch harvesting.",
         "Integrated four subsystems into a single automated countertop platform.",
       ],
-      note: "Team project advised by Prof. Gouldstone. Subsystem ownership varied across the team (electrical and sensor work, nutrient system, UI, and more led by teammates); my role centered on mechanical design and integration. Exact role breakdown to be confirmed before this goes live.",
+      note: "Team project advised by Prof. Gouldstone. Subsystem ownership varied across the team (electrical and sensor work and the nutrient system led by teammates); my role centered on mechanical design, the LCD user interface, and system integration. Exact role breakdown to be confirmed before this goes live.",
       reportUrl: "/reports/endless-garden-exec-summary.pdf",
       images: [
-        { caption: "3D printed plug refill mechanism" },
-        { caption: "CAD render, plug refill rail and door system" },
-        { caption: "Assembled prototype" },
+        { caption: "CAD model of the full Endless Garden appliance", src: "/reports/Capstone-CAD.jpg" },
+        { caption: "The assembled Endless Garden prototype", src: "/reports/capstone-build.jpg" },
+        { caption: "LCD interface: intro screen (one of 8 screens)", src: "/reports/EG-UI-Screen-Intro.jpg" },
+        { caption: "LCD interface: harvest-ready screen", src: "/reports/EG-UI-Screen-Harvest.jpg" },
+        { caption: "LCD interface: pH status screen", src: "/reports/EG-UI-Screen-PH.jpg" },
+        { caption: "LCD interface: water level screen", src: "/reports/EG-UI-Screen-water.jpg" },
       ],
     },
     {
