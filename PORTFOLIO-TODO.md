@@ -19,8 +19,6 @@ Asset folder: `public/reports/`  (full path: `C:\Users\linux\OneDrive\Documents\
   - "3D printed plug refill mechanism"
   - "CAD render, plug refill rail and door system"
   - "Assembled prototype"
-- [ ] **Resume PDF** -> drop the real file at `public/resume.pdf` (the header + contact "Resume"
-      buttons currently link to a file that 404s).
 
 ## 2. Content to confirm before going live
 
@@ -40,8 +38,13 @@ Asset folder: `public/reports/`  (full path: `C:\Users\linux\OneDrive\Documents\
 
 ## Done
 
+- Wired the real **CV/resume** (`victor-diaz-gessner-cv.pdf`) to the header + contact buttons,
+  and updated the **favicon** to `favicon.jpg`.
 - Embedded, in-site PDF report viewer + "Read the full report" button on every project with a
-  `reportUrl`: **Cessna 172**, **Lid-Driven Cavity**, and **Renter-Friendly Desk**.
+  `reportUrl`: **Cessna 172**, **Lid-Driven Cavity**, **Renter-Friendly Desk**, and the
+  **Endless Garden** exec summary.
+- **DAPS:** added the total-density-normalization figure and gave all four photos descriptive
+  captions (density screening, SEM lattice alignment, SEM inconsistency, Rhode Island results).
 - Added the **High-Re Lid-Driven Cavity** ANSYS project (HW 3A), built from the report.
 - **Removed the Turbulent Pipe Flow Validation** ANSYS project entirely.
 - **Removed the image placeholders on the ANSYS projects** (readers see the figures in the

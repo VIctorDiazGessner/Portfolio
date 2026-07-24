@@ -48,7 +48,7 @@ export const siteConfig = {
   accentColor: "#0E7490", // deep cyan, legible on white
 
   // Placeholder assets, swap when finals are provided.
-  resumeUrl: "/resume.pdf", // PLACEHOLDER: drop the real PDF at public/resume.pdf
+  resumeUrl: "/victor-diaz-gessner-cv.pdf", // CV in public/
   heroPhoto: "/victor.jpg", // portrait in public/victor.jpg
 
   social: {
@@ -180,9 +180,26 @@ export const siteConfig = {
       ],
       note: "This research has not yet been formally presented or officially released, so results are described qualitatively rather than with specific figures.",
       images: [
-        { caption: "SEM micrograph, boron ceramic sample", src: "/reports/daps-ceramics-sem-1.jpg" },
-        { caption: "SEM micrograph, microstructure detail", src: "/reports/daps-ceramics-sem-2.jpg" },
-        { caption: "Figure from the connected research presentation", src: "/reports/daps-presenation-1.jpg" },
+        {
+          caption:
+            "Total density normalization: screening the highest-density materials suitable for neutron shielding, used to decide which materials were worth researching further.",
+          src: "/reports/Total-density-normalization.jpg",
+        },
+        {
+          caption:
+            "SEM close-up of the boron lattice (12 micron), checking alignment. The more aligned the structure, the more effective the shielding material.",
+          src: "/reports/daps-ceramics-sem-1.jpg",
+        },
+        {
+          caption:
+            "SEM at lower magnification, showing the broader structural inconsistency we were working to reduce.",
+          src: "/reports/daps-ceramics-sem-2.jpg",
+        },
+        {
+          caption:
+            "Results from the Rhode Island reactor data, showing how effective the different lattice structures and multimaterial blends were.",
+          src: "/reports/daps-presenation-1.jpg",
+        },
       ],
     },
     {
@@ -269,6 +286,7 @@ export const siteConfig = {
         "Integrated four subsystems into a single automated countertop platform.",
       ],
       note: "Team project advised by Prof. Gouldstone. Subsystem ownership varied across the team (electrical and sensor work, nutrient system, UI, and more led by teammates); my role centered on mechanical design and integration. Exact role breakdown to be confirmed before this goes live.",
+      reportUrl: "/reports/endless-garden-exec-summary.pdf",
       images: [
         { caption: "3D printed plug refill mechanism" },
         { caption: "CAD render, plug refill rail and door system" },
