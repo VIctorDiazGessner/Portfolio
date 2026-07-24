@@ -35,6 +35,7 @@ export type Project = {
   myContributions?: string[]; // MY specific contributions, called out separately
   images?: ProjectImage[]; // visual gallery (placeholders until files arrive)
   uiScreens?: ProjectImage[]; // optional UI screenshots, rendered as a carousel
+  award?: { label: string; url?: string }; // recognition badge; url links to a certificate PDF
   reportUrl?: string; // path in /public/reports to the full assignment PDF (embedded + linked)
   chart?: "sharkninja"; // which data-viz to render, if any
 };
@@ -292,6 +293,10 @@ export const siteConfig = {
         "Integrated four subsystems into a single automated countertop platform.",
       ],
       note: "Team of six, advised by Prof. Gouldstone. The contributions described above are my own.",
+      award: {
+        label: "1st place, ME Capstone Track 2 (Fall 2025)",
+        url: "/reports/ME-Track-2-award-Fall-2025.pdf",
+      },
       reportUrl: "/reports/endless-garden-exec-summary.pdf",
       images: [
         { caption: "CAD model of the full Endless Garden appliance", src: "/reports/Capstone-CAD.jpg" },

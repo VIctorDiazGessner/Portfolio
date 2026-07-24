@@ -75,6 +75,34 @@ const numResult = hasContrib ? "04" : "03";
         </p>
 
         {
+          project.award &&
+            (project.award.url ? (
+              <a
+                href={withBase(project.award.url)}
+                target="_blank"
+                rel="noopener"
+                class="mt-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-sm transition-opacity hover:opacity-80"
+                style={`border-color:${accent};color:${accent}`}
+              >
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3" />
+                </svg>
+                {project.award.label}
+              </a>
+            ) : (
+              <span
+                class="mt-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-sm"
+                style={`border-color:${accent};color:${accent}`}
+              >
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3" />
+                </svg>
+                {project.award.label}
+              </span>
+            ))
+        }
+
+        {
           project.reportUrl && (
             <a
               href={withBase(project.reportUrl)}
