@@ -12,19 +12,9 @@ Asset folder: `public/reports/`  (full path: `C:\Users\linux\OneDrive\Documents\
 
 ---
 
-## 1. Still needed / optional
+## Outstanding
 
-- [ ] **Remaining Endless Garden UI screens** (optional). Four of the eight LCD screens are on
-      the page (intro, harvest, pH, water). Drop the other four in `public/reports/` if you want
-      them shown too, and I'll wire them.
-
-## 2. Content to confirm before going live
-
-- [ ] **Endless Garden role breakdown** — the project note says the exact per-teammate role
-      split is "to be confirmed." Confirm or remove that caveat.
-- [ ] **Cessna 172 report, Table 1** (in the PDF, not the site) — the narrative and conclusion
-      were corrected, but Table 1 on page 6 still shows the old (wrong-sign) Cl values. Fix the
-      table in the doc so it matches the corrected text.
+Nothing blocking. The `portfolio-upgrade` branch is ready to review for merge to `main`.
 
 ---
 
@@ -39,10 +29,11 @@ Asset folder: `public/reports/`  (full path: `C:\Users\linux\OneDrive\Documents\
   captions (density screening, SEM lattice alignment, SEM inconsistency, Rhode Island results).
 - **Cessna 172:** updated the Outcome to the corrected results (lift now increases with angle
   of attack, matching the cambered-airfoil lift curve) and removed the sign-convention caveat.
-- **Endless Garden:** wired the real build photos (full CAD, assembled prototype) and four LCD
-  UI screens; added the UI/display story to My Contributions (100+ hrs on a third-party screen,
-  the two-weeks-out decision to switch to a first-party Arduino display, ~40 hrs of refinement)
-  and updated the role note to credit the UI to Victor. Desk report PDF reduced to ~2.7 MB.
+- **Endless Garden:** wired the real build photos (full CAD, assembled prototype) plus two LCD
+  UI screens as a taste of the 8-screen interface; rewrote My Contributions to Victor's exact
+  role (IR harvest sensor, grow lights, LCD UI + Arduino, code integration, CAD contribution and
+  build; plug dispenser as support to a teammate), including the display pivot story; trimmed the
+  note to focus on Victor's role. Desk report PDF reduced to ~2.7 MB.
 - Added the **High-Re Lid-Driven Cavity** ANSYS project (HW 3A), built from the report.
 - **Removed the Turbulent Pipe Flow Validation** ANSYS project entirely.
 - **Removed the image placeholders on the ANSYS projects** (readers see the figures in the

@@ -290,15 +290,13 @@ export const siteConfig = {
         "Delivered a working prototype demonstrating staggered, ongoing harvest rather than batch harvesting.",
         "Integrated four subsystems into a single automated countertop platform.",
       ],
-      note: "Team project advised by Prof. Gouldstone. I owned the IR harvest sensor, the grow lights, the LCD interface, and the Arduino selection, and integrated the team's code into one working system, contributing to the overall CAD and the build along the way. The nutrient dosing and water-level control were led by teammates, and the gravity-fed plug dispenser was a teammate's subsystem that I supported. Exact role breakdown to be confirmed before this goes live.",
+      note: "Team of six, advised by Prof. Gouldstone. The contributions described above are my own.",
       reportUrl: "/reports/endless-garden-exec-summary.pdf",
       images: [
         { caption: "CAD model of the full Endless Garden appliance", src: "/reports/Capstone-CAD.jpg" },
         { caption: "The assembled Endless Garden prototype", src: "/reports/capstone-build.jpg" },
-        { caption: "LCD interface: intro screen (one of 8 screens)", src: "/reports/EG-UI-Screen-Intro.jpg" },
+        { caption: "LCD interface: intro screen (a taste of the 8-screen UI)", src: "/reports/EG-UI-Screen-Intro.jpg" },
         { caption: "LCD interface: harvest-ready screen", src: "/reports/EG-UI-Screen-Harvest.jpg" },
-        { caption: "LCD interface: pH status screen", src: "/reports/EG-UI-Screen-PH.jpg" },
-        { caption: "LCD interface: water level screen", src: "/reports/EG-UI-Screen-water.jpg" },
       ],
     },
     {
