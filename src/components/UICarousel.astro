@@ -1,0 +1,135 @@
+---
+import { siteConfig } from "../config";
+import { withBase } from "../lib/base";
+import type { ProjectImage } from "../config";
+
+interface Props {
+  images: ProjectImage[];
+  label?: string;
+}
+const { images, label = "UI carousel" } = Astro.props;
+const accent = siteConfig.accentColor;
+---
+
+{
+  images?.length > 0 && (
+    <section class="reveal" data-ui-carousel>
+      <div class="flex items-center justify-between gap-4 mb-5">
+        <h2 class="font-mono text-sm uppercase tracking-widest text-[var(--text-faint)]">
+          {label}
+        </h2>
+        <span class="font-mono text-xs text-[var(--text-faint)]">
+          {images.length} screens
+        </span>
+      </div>
+
+      <div class="relative rounded-xl border border-[var(--border)] bg-[var(--bg-panel)] overflow-hidden">
+        <div
+          data-carousel-track
+          class="carousel-track flex overflow-x-auto snap-x snap-mandatory scroll-smooth"
+        >
+          {images.map((img) => (
+            <figure class="snap-center shrink-0 w-full">
+              <div class="aspect-[4/3] flex items-center justify-center bg-[var(--bg)] p-4 sm:p-6">
+                <img
+                  src={withBase(img.src!)}
+                  alt={img.caption}
+                  loading="lazy"
+                  class="max-h-full max-w-full object-contain rounded"
+                />
+              </div>
+              <figcaption class="px-4 py-3 font-mono text-xs text-[var(--text-muted)] border-t border-[var(--border)] text-center">
+                {img.caption}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          data-carousel-prev
+          aria-label="Previous screen"
+          class="absolute left-3 top-1/2 -translate-y-1/2 grid place-items-center w-9 h-9 rounded-full border border-[var(--border)] bg-[var(--bg-panel)]/90 text-[var(--text)] backdrop-blur transition-colors hover:text-[var(--accent)]"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          data-carousel-next
+          aria-label="Next screen"
+          class="absolute right-3 top-1/2 -translate-y-1/2 grid place-items-center w-9 h-9 rounded-full border border-[var(--border)] bg-[var(--bg-panel)]/90 text-[var(--text)] backdrop-blur transition-colors hover:text-[var(--accent)]"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+
+      <div data-carousel-dots class="mt-4 flex justify-center gap-2">
+        {images.map((_, i) => (
+          <button
+            type="button"
+            data-dot={i}
+            aria-label={`Go to screen ${i + 1}`}
+            class={`h-2 w-2 rounded-full transition-colors ${i === 0 ? "bg-[var(--accent)]" : "bg-[var(--border-strong)]"}`}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .carousel-track {
+    scrollbar-width: none;
+  }
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  function initUICarousels() {
+    document.querySelectorAll("[data-ui-carousel]").forEach((root) => {
+      const track = root.querySelector<HTMLElement>("[data-carousel-track]");
+      if (!track || track.dataset.carouselReady === "1") return;
+      track.dataset.carouselReady = "1";
+
+      const slides = Array.from(track.children) as HTMLElement[];
+      const dots = Array.from(root.querySelectorAll<HTMLElement>("[data-dot]"));
+      const prev = root.querySelector<HTMLElement>("[data-carousel-prev]");
+      const next = root.querySelector<HTMLElement>("[data-carousel-next]");
+      if (!slides.length) return;
+
+      const current = () => Math.round(track.scrollLeft / track.clientWidth);
+      const go = (i: number) => {
+        const idx = Math.max(0, Math.min(slides.length - 1, i));
+        track.scrollTo({ left: idx * track.clientWidth, behavior: "smooth" });
+      };
+
+      prev?.addEventListener("click", () => go(current() - 1));
+      next?.addEventListener("click", () => go(current() + 1));
+      dots.forEach((dot, i) => dot.addEventListener("click", () => go(i)));
+
+      const setActive = () => {
+        const c = current();
+        dots.forEach((dot, i) => {
+          const on = i === c;
+          dot.classList.toggle("bg-[var(--accent)]", on);
+          dot.classList.toggle("bg-[var(--border-strong)]", !on);
+        });
+      };
+      track.addEventListener(
+        "scroll",
+        () => window.requestAnimationFrame(setActive),
+        { passive: true },
+      );
+      setActive();
+    });
+  }
+
+  initUICarousels();
+  document.addEventListener("astro:page-load", initUICarousels);
+</script>

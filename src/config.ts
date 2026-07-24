@@ -34,6 +34,7 @@ export type Project = {
   context?: string; // framing paragraph shown before the problem
   myContributions?: string[]; // MY specific contributions, called out separately
   images?: ProjectImage[]; // visual gallery (placeholders until files arrive)
+  uiScreens?: ProjectImage[]; // optional UI screenshots, rendered as a carousel
   reportUrl?: string; // path in /public/reports to the full assignment PDF (embedded + linked)
   chart?: "sharkninja"; // which data-viz to render, if any
 };
@@ -295,8 +296,15 @@ export const siteConfig = {
       images: [
         { caption: "CAD model of the full Endless Garden appliance", src: "/reports/Capstone-CAD.jpg" },
         { caption: "The assembled Endless Garden prototype", src: "/reports/capstone-build.jpg" },
-        { caption: "LCD interface: intro screen (a taste of the 8-screen UI)", src: "/reports/EG-UI-Screen-Intro.jpg" },
-        { caption: "LCD interface: harvest-ready screen", src: "/reports/EG-UI-Screen-Harvest.jpg" },
+      ],
+      uiScreens: [
+        { caption: "Intro / home screen", src: "/reports/EG-UI-Screen-Intro.jpg" },
+        { caption: "Harvest-ready alert", src: "/reports/EG-UI-Screen-Harvest.jpg" },
+        { caption: "pH status", src: "/reports/EG-UI-Screen-PH.jpg" },
+        { caption: "Water level", src: "/reports/EG-UI-Screen-water.jpg" },
+        { caption: "Nutrient status", src: "/reports/EG-UI_Nutr.jpg" },
+        { caption: "Plug refill / reserve status", src: "/reports/EG-UI_Refill.jpg" },
+        { caption: "Settings", src: "/reports/EG-UI_settings.jpg" },
       ],
     },
     {

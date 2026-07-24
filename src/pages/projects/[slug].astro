@@ -4,6 +4,7 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import ProjectChart from "../../components/ProjectChart.astro";
 import ProjectGallery from "../../components/ProjectGallery.astro";
+import UICarousel from "../../components/UICarousel.astro";
 import { siteConfig } from "../../config";
 import { withBase } from "../../lib/base";
 
@@ -277,6 +278,15 @@ const numResult = hasContrib ? "04" : "03";
         project.images && project.images.length > 0 && (
           <div class="mt-12">
             <ProjectGallery images={project.images} />
+          </div>
+        )
+      }
+
+      <!-- UI carousel -->
+      {
+        project.uiScreens && project.uiScreens.length > 0 && (
+          <div class="mt-12">
+            <UICarousel images={project.uiScreens} />
           </div>
         )
       }
