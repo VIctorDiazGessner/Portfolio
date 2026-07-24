@@ -180,9 +180,9 @@ export const siteConfig = {
       ],
       note: "This research has not yet been formally presented or officially released, so results are described qualitatively rather than with specific figures.",
       images: [
-        { caption: "SEM micrograph, boron ceramic sample" },
-        { caption: "SEM micrograph, microstructure detail" },
-        { caption: "Figure from the connected research presentation" },
+        { caption: "SEM micrograph, boron ceramic sample", src: "/reports/daps-ceramics-sem-1.jpg" },
+        { caption: "SEM micrograph, microstructure detail", src: "/reports/daps-ceramics-sem-2.jpg" },
+        { caption: "Figure from the connected research presentation", src: "/reports/daps-presenation-1.jpg" },
       ],
     },
     {
@@ -329,11 +329,10 @@ export const siteConfig = {
         "Cost: an estimated unit price of $35.47 (plus about $2.00 packaging), against roughly $35,000 annual overhead and variable freight/marketing of about $23.90 to $31.00 per unit, assuming rural-China production with flat-pack shipping.",
       ],
       note: "Team project for a mechanical component design class, not a capstone or commercial product. It was a design project: the full desk was designed to be built, not actually built. Only small demonstration mockups (a concept mockup and a 3D-printed model) were made.",
+      reportUrl: "/reports/Final-Design-Report-desk.pdf",
       images: [
-        { caption: "Static failure FEA (SolidWorks Simulation)" },
-        { caption: "Buckling FEA" },
-        { caption: "Rack-and-pinion gear analysis" },
-        { caption: "Final 3D-printed prototype" },
+        { caption: "CAD model of the nesting desk", src: "/reports/DESK-CAD.jpg" },
+        { caption: "Bending-stress FEA (SolidWorks Simulation)", src: "/reports/desk-FEA-bending.jpg" },
       ],
     },
   ] as Project[],
@@ -346,35 +345,6 @@ export const siteConfig = {
   // ==========================================================================
   ansysNote: "ANSYS Fluent, Prof. Abedi's course",
   ansysProjects: [
-    {
-      slug: "cfd-turbulent-pipe-flow",
-      name: "Turbulent Pipe Flow Validation",
-      org: "ANSYS Fluent, CFD Homework 3",
-      role: "CFD Analysis",
-      dateRange: "Coursework",
-      summary:
-        "Built a 1:100 scale pipe model in ANSYS to reproduce and validate the centerline velocity overshoot and wall shear stress undershoot in the entrance region of turbulent pipe flow, benchmarked against a published 2022 paper.",
-      skills: ["ANSYS Fluent", "Turbulence Modeling", "Mesh Independence", "Validation"],
-      metrics: [],
-      problem:
-        "Reproduce and validate the centerline velocity overshoot and wall shear stress undershoot in turbulent pipe flow, a real effect where centerline velocity in a pipe's entrance region rises above its fully developed value before settling back down.",
-      approach: [
-        "Built a 1:100 scale pipe model in ANSYS and benchmarked results directly against Bopp and Weiss (2022, International Journal of Thermal Sciences), 'On the origin of the centreline velocity overshoot in the entrance region of a turbulent pipe flow'.",
-        "Ran a mesh independence study across three mesh densities to confirm the results were mesh-independent.",
-        "Compared laminar, k-epsilon, k-omega, and Spalart-Allmaras turbulence models at Reynolds numbers of 19,000 and 105,000, plus Reynolds numbers of 40, 60, 80, and 150 for further validation against the paper's data.",
-      ],
-      result: [
-        "The k-omega model was the most consistent and was used for the primary comparison.",
-        "Results matched the published paper's overshoot behavior and trends closely across all tested Reynolds numbers.",
-      ],
-      note: "Full write-up with ANSYS screenshots (contours, profiles, graphs) available on request.",
-      images: [
-        { caption: "Centerline velocity profile vs. published data" },
-        { caption: "Wall shear stress distribution" },
-        { caption: "Mesh independence study" },
-        { caption: "Turbulence model comparison" },
-      ],
-    },
     {
       slug: "cfd-cessna-172-airfoil",
       name: "Cessna 172 Airfoil Analysis",
@@ -397,12 +367,6 @@ export const siteConfig = {
       ],
       note: "The lift-coefficient trend came out increasingly negative with angle of attack, the opposite of the classic cambered-airfoil lift curve, which points to a sign or reference-frame convention in the solver setup that should be confirmed before drawing real-world conclusions. The full report with all figures is embedded below.",
       reportUrl: "/reports/cfd-hw4-cessna-172.pdf",
-      images: [
-        { caption: "Mesh around the main wing and stabilizer" },
-        { caption: "Static pressure field around both airfoils" },
-        { caption: "Velocity streamlines and magnitude contour" },
-        { caption: "Lift and drag coefficient histories across angle of attack" },
-      ],
     },
     {
       slug: "cfd-lid-driven-cavity",
@@ -433,13 +397,6 @@ export const siteConfig = {
       ],
       note: "This problem is laminar-to-transitional at these Reynolds numbers for a cavity of this size, so the turbulence-model comparison is best read as a solver-setup consistency check rather than a validation of turbulence closure in a genuinely turbulent flow. A quantitative, point-by-point comparison against the paper's tables is left for future work. The full report with all figures is embedded below.",
       reportUrl: "/reports/cfd-hw3a-high-re-cavity.pdf",
-      images: [
-        { caption: "Residual convergence, Re = 400 (129 x 129 mesh)" },
-        { caption: "Velocity-magnitude pathlines, Re = 100" },
-        { caption: "Pathlines and Y-velocity profile, Re = 1000" },
-        { caption: "Velocity-magnitude pathlines, Re = 10,000 (257 x 257 mesh)" },
-        { caption: "Turbulence model comparison, Re = 10,000" },
-      ],
     },
   ] as Project[],
 
