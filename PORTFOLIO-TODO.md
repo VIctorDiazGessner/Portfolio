@@ -22,9 +22,9 @@ Asset folder: `public/reports/`  (full path: `C:\Users\linux\OneDrive\Documents\
 
 - [ ] **Endless Garden role breakdown** — the project note says the exact per-teammate role
       split is "to be confirmed." Confirm or remove that caveat.
-- [ ] **Cessna 172 lift sign** — the report itself flags that lift coefficient trends the
-      "wrong" way with angle of attack, pointing to a solver sign/reference-frame convention.
-      Confirm the convention before treating those numbers as physical.
+- [ ] **Cessna 172 report, Table 1** (in the PDF, not the site) — the narrative and conclusion
+      were corrected, but Table 1 on page 6 still shows the old (wrong-sign) Cl values. Fix the
+      table in the doc so it matches the corrected text.
 
 ---
 
@@ -37,6 +37,8 @@ Asset folder: `public/reports/`  (full path: `C:\Users\linux\OneDrive\Documents\
   **Endless Garden** exec summary.
 - **DAPS:** added the total-density-normalization figure and gave all four photos descriptive
   captions (density screening, SEM lattice alignment, SEM inconsistency, Rhode Island results).
+- **Cessna 172:** updated the Outcome to the corrected results (lift now increases with angle
+  of attack, matching the cambered-airfoil lift curve) and removed the sign-convention caveat.
 - **Endless Garden:** wired the real build photos (full CAD, assembled prototype) and four LCD
   UI screens; added the UI/display story to My Contributions (100+ hrs on a third-party screen,
   the two-weeks-out decision to switch to a first-party Arduino display, ~40 hrs of refinement)

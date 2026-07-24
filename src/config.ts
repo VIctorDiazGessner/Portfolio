@@ -389,9 +389,9 @@ export const siteConfig = {
       ],
       result: [
         "At 0 degrees, captured the expected low-pressure, accelerated-flow region above the main wing (peak velocity about 73.9 m/s against a 63 m/s freestream), consistent with lift generation.",
-        "Across the sweep, drag rose steadily with angle of attack (roughly 0.00375 at -2 degrees to 0.0065 at 4 degrees), as expected from the growing effective cross-section.",
+        "Lift increased steadily with angle of attack, matching the classic cambered-airfoil lift curve: Cl climbed from about -0.0165 at -2 degrees to +0.0113 at 0 degrees, a small positive value at zero incidence that reflects the airfoil's built-in camber, and on to +0.072 at 4 degrees.",
+        "Drag rose steadily across the same range (about 0.00375 at -2 degrees to 0.0065 at 4 degrees), capturing the expected lift-drag trade-off as angle of attack climbs toward stall.",
       ],
-      note: "The lift-coefficient trend came out increasingly negative with angle of attack, the opposite of the classic cambered-airfoil lift curve, which points to a sign or reference-frame convention in the solver setup that should be confirmed before drawing real-world conclusions. The full report with all figures is embedded below.",
       reportUrl: "/reports/cfd-hw4-cessna-172.pdf",
     },
     {
