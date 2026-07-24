@@ -34,7 +34,7 @@ export type Project = {
   context?: string; // framing paragraph shown before the problem
   myContributions?: string[]; // MY specific contributions, called out separately
   images?: ProjectImage[]; // visual gallery (placeholders until files arrive)
-  hasModel?: boolean; // true only for the Endless Garden capstone (real model)
+  reportUrl?: string; // path in /public/reports to the full assignment PDF (embedded + linked)
   chart?: "sharkninja"; // which data-viz to render, if any
 };
 
@@ -49,7 +49,7 @@ export const siteConfig = {
 
   // Placeholder assets, swap when finals are provided.
   resumeUrl: "/resume.pdf", // PLACEHOLDER: drop the real PDF at public/resume.pdf
-  heroPhoto: "", // PLACEHOLDER: set to e.g. "/victor.jpg" once provided
+  heroPhoto: "/victor.jpg", // portrait in public/victor.jpg
 
   social: {
     email: "victorxdiazg@gmail.com",
@@ -239,7 +239,6 @@ export const siteConfig = {
         { value: "4", label: "Integrated subsystems" },
         { value: "7.5 wk", label: "Initial grow cycle" },
       ],
-      hasModel: true,
       team: [
         "Daniel Cabestrero",
         "Amanda Curran",
@@ -393,14 +392,53 @@ export const siteConfig = {
         "Computed lift and drag coefficients across angles of attack from -2 to 4 degrees to see how each responded.",
       ],
       result: [
-        "Captured the expected relationship where more negative angles of attack increase downforce and cross-sectional drag.",
+        "At 0 degrees, captured the expected low-pressure, accelerated-flow region above the main wing (peak velocity about 73.9 m/s against a 63 m/s freestream), consistent with lift generation.",
+        "Across the sweep, drag rose steadily with angle of attack (roughly 0.00375 at -2 degrees to 0.0065 at 4 degrees), as expected from the growing effective cross-section.",
       ],
-      note: "Full write-up with ANSYS screenshots (pressure contours, velocity fields) available on request.",
+      note: "The lift-coefficient trend came out increasingly negative with angle of attack, the opposite of the classic cambered-airfoil lift curve, which points to a sign or reference-frame convention in the solver setup that should be confirmed before drawing real-world conclusions. The full report with all figures is embedded below.",
+      reportUrl: "/reports/cfd-hw4-cessna-172.pdf",
       images: [
-        { caption: "Pressure contours, NACA 2412" },
-        { caption: "Velocity field around the airfoil" },
-        { caption: "Lift and drag vs. angle of attack" },
-        { caption: "Mesh around the airfoil" },
+        { caption: "Mesh around the main wing and stabilizer" },
+        { caption: "Static pressure field around both airfoils" },
+        { caption: "Velocity streamlines and magnitude contour" },
+        { caption: "Lift and drag coefficient histories across angle of attack" },
+      ],
+    },
+    {
+      slug: "cfd-lid-driven-cavity",
+      name: "High-Re Lid-Driven Cavity",
+      org: "ANSYS Fluent, CFD Homework 3A",
+      role: "CFD Analysis",
+      dateRange: "Coursework",
+      summary:
+        "Recreated the classic Ghia, Ghia & Shin (1982) lid-driven cavity benchmark in ANSYS Fluent, reproducing the high-Reynolds-number vortex structure from Re = 100 to 10,000 that originally required a dedicated multigrid solver on a 1980s mainframe.",
+      skills: ["ANSYS Fluent", "Mesh Independence", "Benchmark Validation", "Turbulence Modeling"],
+      metrics: [
+        { value: "100-10k", label: "Reynolds range" },
+        { value: "257x257", label: "Finest mesh" },
+        { value: "4", label: "Turbulence models" },
+      ],
+      problem:
+        "Determine whether the high-Reynolds-number incompressible cavity-flow results published by Ghia, Ghia & Shin in 1982, originally obtained with a coupled strongly implicit multigrid method on an Amdahl 470 V/6 mainframe, can be reproduced 44 years later with a modern general-purpose solver on a laptop-class workstation.",
+      approach: [
+        "Rebuilt the 1 m x 1 m lid-driven cavity from the paper: a top wall moving in its own plane with three stationary no-slip walls, modeled as two-dimensional laminar incompressible flow, with the Reynolds number set through the fluid properties and lid velocity.",
+        "Ran a mesh independence study at Re = 400 on 129 x 129 and 257 x 257 uniform grids, monitoring continuity and velocity residuals until they dropped several orders of magnitude and flattened out.",
+        "Swept Reynolds numbers of 100, 400, 1000, 3200, 5000, 7500, and 10,000, using the 129 x 129 mesh at lower Re and the 257 x 257 mesh at higher Re, matching the paper's own mesh choices.",
+        "Re-solved the Re = 10,000 case with four turbulence models (k-epsilon, k-omega, Spalart-Allmaras, and the Reynolds Stress Model) and compared their pathline patterns and residual histories.",
+      ],
+      result: [
+        "Reproduced the full progression from a single smooth primary vortex at Re = 100 to a developed system of secondary and tertiary corner vortices at Re = 10,000, matching the benchmark qualitatively across the whole range.",
+        "Confirmed mesh independence at Re = 400: the 129 x 129 grid was adequate at moderate Re, with the finer 257 x 257 grid reserved for higher Re, exactly as the original paper found.",
+        "All four turbulence models produced very similar large-scale pathline patterns at Re = 10,000, indicating that the choice of turbulence closure had a modest effect on the resolved flow structure for this case.",
+      ],
+      note: "This problem is laminar-to-transitional at these Reynolds numbers for a cavity of this size, so the turbulence-model comparison is best read as a solver-setup consistency check rather than a validation of turbulence closure in a genuinely turbulent flow. A quantitative, point-by-point comparison against the paper's tables is left for future work. The full report with all figures is embedded below.",
+      reportUrl: "/reports/cfd-hw3a-high-re-cavity.pdf",
+      images: [
+        { caption: "Residual convergence, Re = 400 (129 x 129 mesh)" },
+        { caption: "Velocity-magnitude pathlines, Re = 100" },
+        { caption: "Pathlines and Y-velocity profile, Re = 1000" },
+        { caption: "Velocity-magnitude pathlines, Re = 10,000 (257 x 257 mesh)" },
+        { caption: "Turbulence model comparison, Re = 10,000" },
       ],
     },
   ] as Project[],

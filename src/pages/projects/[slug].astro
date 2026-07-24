@@ -3,7 +3,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import ProjectChart from "../../components/ProjectChart.astro";
-import ModelViewer from "../../components/ModelViewer.astro";
 import ProjectGallery from "../../components/ProjectGallery.astro";
 import { siteConfig } from "../../config";
 import { withBase } from "../../lib/base";
@@ -75,6 +74,24 @@ const numResult = hasContrib ? "04" : "03";
         </p>
 
         {
+          project.reportUrl && (
+            <a
+              href={withBase(project.reportUrl)}
+              target="_blank"
+              rel="noopener"
+              class="mt-6 inline-flex items-center gap-2 rounded-lg px-4 py-2.5 font-mono text-sm font-semibold transition-opacity hover:opacity-90"
+              style={`background-color:${accent};color:#fff`}
+            >
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+              </svg>
+              Read the full report (PDF)
+            </a>
+          )
+        }
+
+        {
           isTeam && (
             <p class="mt-5 text-sm text-[var(--text-faint)] leading-relaxed">
               <span class="font-mono uppercase tracking-wider">
@@ -116,15 +133,6 @@ const numResult = hasContrib ? "04" : "03";
                 </div>
               </div>
             ))}
-          </div>
-        )
-      }
-
-      <!-- 3D model (Endless Garden only) -->
-      {
-        project.hasModel && (
-          <div class="mt-12">
-            <ModelViewer />
           </div>
         )
       }
@@ -229,6 +237,40 @@ const numResult = hasContrib ? "04" : "03";
           )
         }
       </section>
+
+      <!-- Full report (assignment PDF, embedded in-site) -->
+      {
+        project.reportUrl && (
+          <section class="reveal mt-14">
+            <div class="flex items-center justify-between gap-4 mb-5">
+              <h2 class="font-mono text-sm uppercase tracking-widest text-[var(--text-faint)]">
+                Full report
+              </h2>
+              <a
+                href={withBase(project.reportUrl)}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-1.5 font-mono text-sm hover:underline"
+                style={`color:${accent}`}
+              >
+                Open in new tab
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" />
+                </svg>
+              </a>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--bg-panel)]">
+              <iframe
+                src={`${withBase(project.reportUrl)}#view=FitH`}
+                title={`${project.name} full report`}
+                loading="lazy"
+                class="w-full"
+                style="height:min(85vh,1000px); border:0; background:var(--bg);"
+              />
+            </div>
+          </section>
+        )
+      }
 
       <!-- Gallery -->
       {
